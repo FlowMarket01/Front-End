@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+
+} */
+
+
+
+.cego {
+    display: grid;
+    font-size: 10px;
+    color: #6aae48;
+    margin-bottom: 10px ;
+}
+
+.card {
+    color: #0F4C3A;
+    grid-template-columns: 1fr 1fr;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.divisao {
+    display: flex;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+
+}
+/*.direito{
+
+}
+
+.esquerdo{
+
+}*/
+
+.colunas {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 40px;
+}
+
+.paragrafo {
+    flex: 1;
+    color: #3D6E5F;
+    font-size: 12px;
+    max-width: 800px;
+    margin-bottom: 30px;
+
+    
+}
+
+.risco {
+    border-left: solid 1px #6aae48;
+    height: 60px;
+}
+
+.fonte {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #6F6F6F;
+    margin: 10px;
+
+}
+
+.quebra-linhas{
+    flex: 1;
+    max-width: 10px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.sub-titulo {
+    color: #6dae4b;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 20px;
+}
