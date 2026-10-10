@@ -65,13 +65,14 @@ html{
 
 .divCard{
     background-color: #fff;
-    min-width: 400px;
-    max-width: 600px;
-    max-height: 541px;
     width: 40%;
-    min-height: 500px;
     padding: 20px;
     border-radius: 10px;
+    height: 541px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 400px;
 }
 
 .divCard h1{
@@ -84,6 +85,7 @@ html{
     font-size: 1.4rem;
 }
 
-.divGrafico{
-    
+.canvasGrafico{
+    height: 100%;
+    width: 100%;
 }
