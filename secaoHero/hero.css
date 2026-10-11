@@ -68,10 +68,9 @@
 
 
 
-.texo {
-    display: flex;
+.texto {
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     align-items: flex-start;
 }
 
@@ -139,13 +138,13 @@
     border: #6aae48 solid 1px;
     border-radius: 20px;
     margin: 20px;
-
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .sub {
     display: flex;
-    justify-content: center;
-    max-width: 300px;
     font-weight: bold;
     font-size: 14px;
     color: #0F4C3A;
@@ -153,32 +152,58 @@
 
 }
 
-.risco {
+/*.risco {
     display: grid;
     height: 0px;
     border: solid 1px #6aae48;
     width: 450px;
     justify-content: center;
     margin: 15px;
-}
+}*/
 
-.espaco_cards{
-    display: flex;
-    flex-direction: row;
+.espaco_card {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .mini_card {
-    display: flex;
-    width: 150px;
-    height: 80px;
+    display: grid;
     border: #E5E7EB solid 1px;
-    border-radius: 20px;
-    background-color: #E4ECE7 ;
-    margin: 20px;
+    border-radius: 12px;
+    background-color: #E4ECE7;
+    padding: 12px;
+
+
+}
+
+.mini_tit {
+    color: #0F4C3A;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.mini_sub_tit {
+    color: #909090;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.mini_legenda{
+    color: #6aae48;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 
-.fundo{
-     background-image: url("https://www.gestaodecurriculos.com.br/wordpress/wp-content/uploads/2025/10/supermercado.webp");
 
+
+
+/*.fundo {
+    background-image: url("https://www.gestaodecurriculos.com.br/wordpress/wp-content/uploads/2025/10/supermercado.webp");
+
+
+    
 }
