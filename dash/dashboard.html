@@ -268,7 +268,51 @@
         },
       });
 
-      
+      new Chart(graficoLinhaCaixaPicoOcupacao, {
+        type: "line",
+        data: {
+          labels: horas,
+          datasets: [
+            {
+              data: caixaSeries["Caixa 1"],
+              borderColor: "#6AAE48",
+              backgroundColor: "rgba(106, 174, 72, 0.10)",
+              borderWidth: 2,
+              fill: true,
+              stepped: true,
+              pointRadius: 0,
+              pointHitRadius: 12,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: Object.assign({}, tooltipMarca, {
+              callbacks: {
+                label: function (ctx) {
+                  return " Estado: " + estado[ctx.parsed.y];
+                },
+              },
+            }),
+          },
+          scales: {
+            x: escalaCategorica,
+            y: {
+              min: 0,
+              max: 2,
+              ticks: {
+                callback: function (valor) {
+                  return estado[valor];
+                },
+              },
+            border: { display: false },
+            },
+          },
+        },
+      });
     </script>
   </body>
 </html>
