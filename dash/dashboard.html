@@ -240,6 +240,34 @@
         },
       });
 
+      new Chart(graficoBarraCaixaMaiorTempo, {
+        type: "bar",
+        data: {
+          labels: caixasRanking.map(function (c) {
+            return c.identificacao;
+          }),
+          datasets: [
+            {
+              data: caixasRanking.map(function (c) {
+                return c.minutosEmCheio;
+              }),
+              backgroundColor: "#0F4C3A",
+              borderRadius: { topLeft: 6, topRight: 6 },
+              maxBarThickness: 42,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+          scales: { x: escalaCategorica, y: escalaContagem },
+        },
+      });
+
       
     </script>
   </body>
