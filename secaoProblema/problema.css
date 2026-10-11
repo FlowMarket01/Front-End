@@ -5,48 +5,42 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    max-width: 100px;
-    width: 100%;
-}
+
 
 .cego {
-    display: grid;
-    font-size: 16px;
     color: #6aae48;
-    margin-bottom: 10px;
 }
 
 .paragrafo {
     flex: 1;
     color: #3D6E5F;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 300px;
     margin-bottom: 10px;
 }
 
 .divisao {
     display: flex;
-    padding: 40px;
-    justify-content: space-between;
+    padding: 50px;
+    justify-content: space-around;
     align-items: flex-start;
-    gap: 60px;
+    gap: 30px;
 
 }
 
 .risco {
     border-left: solid 1px #6aae48;
-    height: 70px;
+    height: 90px;
     padding: 10px;
 }
 
 .fonte {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
     color: #6F6F6F;
     max-width: 300px;
     align-items: center;
-    justify-content: flex-start;
+    text-align: left;
 }
 
 
@@ -56,6 +50,7 @@
     font-weight: bold;
     font-size: 40px;
     margin-bottom: 10px;
+    margin-top: 10px;
     max-width: 300px;
 }
 
@@ -77,9 +72,12 @@
 
 .card {
     width: 350px;
+        min-width: 0;
+
     height: fit-content;
     background-color: white;
-    border: solid 1px;
+    box-shadow: 0 10px 25px -5px rgba(46, 40, 40, 0.2), 
+              0 8px 10px -6px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     margin: 10px;
     padding: 40px;
