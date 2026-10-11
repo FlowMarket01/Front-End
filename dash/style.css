@@ -100,3 +100,24 @@ html{
 .chartContainer canvas {
     display: block;
 }
+
+.supDivSelect{
+    /* border: 2px solid black; */
+    display: flex;
+    gap: 100px;
+}
+
+.supDivSelect select{
+    width: 170px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    color: #0F4C3A;
+    font-weight: 600;
+}
+
+.supDivSelect select:focus{
+    outline: none;
+    box-shadow: none;
+}
