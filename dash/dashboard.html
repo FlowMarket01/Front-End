@@ -216,6 +216,30 @@
         },
       });
 
+      new Chart(graficoLinhaCorredorPicoFluxo, {
+        type: "line",
+        data: {
+          labels: horas,
+          datasets: [
+            {
+              data: corredorSeries["Corredor 1"],
+              borderWidth: 1,
+              backgroundColor: "#6AAE48",
+              tension: 0.5,
+              borderColor: "#6AAE48",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+        },
+      });
+
       
     </script>
   </body>
