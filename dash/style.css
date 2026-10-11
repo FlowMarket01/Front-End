@@ -89,3 +89,14 @@ html{
     height: 100%;
     width: 100%;
 }
+
+.chartContainer {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+}
+
+.chartContainer canvas {
+    display: block;
+}
