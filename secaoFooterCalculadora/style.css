@@ -1,7 +1,5 @@
-body{
+.nomargin {
     margin: 0;
-    font-family: 'Poppins';
-    font-size: 16px;
 }
 
 .calculadora_panel{
@@ -12,6 +10,9 @@ body{
     border-radius: 20px;
     background-color: #F4F7F5;
     justify-content: space-evenly;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 16px;
 
     box-sizing: border-box;
     overflow: hidden;
@@ -127,7 +128,7 @@ select {
     font-size: 14px;
 }
 
-button{
+.btn_calculadora{
     display: flex;
     background-color: #0F4C3A;
     color: white;
@@ -159,6 +160,9 @@ h2{
     background-color: #0F4C3A;
     width: 100%;
     padding: 50px;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 16px;
 }
 
 .footer_row{
