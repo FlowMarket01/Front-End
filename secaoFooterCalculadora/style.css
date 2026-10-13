@@ -129,6 +129,7 @@ select {
 }
 
 .btn_calculadora{
+    cursor: pointer;
     display: flex;
     background-color: #0F4C3A;
     color: white;
@@ -144,9 +145,13 @@ select {
     margin: 10px;
     align-items: center;
     justify-content: space-around;
-
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);;
 }
+
+.btn_calculadora:hover{
+    background-color: #275E4E;
+}
+
 
 h2{
     color: #6AAE48;
