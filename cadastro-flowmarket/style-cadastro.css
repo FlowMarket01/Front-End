@@ -126,6 +126,7 @@ body {
     font-weight: 600;
     transition: 0.3s;
     margin-bottom: 0px;
+    cursor: pointer;
 }
 
 .button-cadastro:hover {
