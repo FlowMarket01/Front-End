@@ -81,7 +81,7 @@
   line-height: 1.2;
   margin-bottom: 4px;
 }
-a{
+.style-link{
     color: #6AAE48;
     text-decoration: none;
 }
@@ -90,4 +90,11 @@ a{
     color: #6AAE48;
     font-weight: 400;
     
+}
+
+@media (max-width: 750px) {
+  .corpo-principal {
+    width: 60%;
+    
+  }
 }
