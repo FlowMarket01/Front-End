@@ -1,10 +1,10 @@
 * {
     margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
     box-sizing: border-box;
 }
 
@@ -17,7 +17,15 @@ body {
 }
 
 .header {
-    margin-top: 70px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icone-carrinho {
+    width: 45px;
+    height: 45px;
 }
 
 .form-header {
@@ -36,21 +44,25 @@ body {
     font-size: 16px;
     color: #828181;
     text-align: center;
-    width: 520  px;
+    width: 100%;
+    max-width: 520px;
 }
 
 .cad-container {
     display: flex;
     flex-direction: column;
 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
     margin-top: 30px;
-    margin-bottom: 20 px;
+    margin-bottom: 20px;
     background-color: #FFFFFF;
 
     border-radius: 10px;
     padding: 40px;
     padding-top: 50px;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     gap: 40px;
 }
 
@@ -104,17 +116,32 @@ body {
     border-color: #6AAE48;
 }
 
-    .button-cadastro {
-        background-color: #0F4C3A;
-        color: #FFFFFF;
-        padding: 10px 15px;
-        width:  520px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.3s;
-        margin-bottom: 0px;
-    }
+.button-cadastro {
+    background-color: #0F4C3A;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-bottom: 0px;
+}
 
-    .button-cadastro:hover {
-        background-color: #6AAE48;
-    }
+.button-cadastro:hover {
+    background-color: #6AAE48;
+}
+
+.text-login {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 50px;
+    color: #0F4C3A;
+}
+
+.text-login a {
+    color: #0F4C3A;
+    font-weight: 600;
+    text-decoration: none;
+}
+    
