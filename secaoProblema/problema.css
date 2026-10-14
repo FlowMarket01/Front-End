@@ -30,7 +30,6 @@
 
 .risco_secaoProblema {
     border-left: solid 1px #6aae48;
-    height: 100%;
     min-height: 90px;
     padding: 10px;
 }
@@ -92,5 +91,7 @@
     .paragrafo_secaoProblema{font-size: 16px; }
     .titulo_eSubs_secaoProblema{font-size: 30px;}
     .fonte_secaoProblema{font-size: 13px;}
+    .card_individual_secaoProblema{padding: 20px;}
 
 }
+
