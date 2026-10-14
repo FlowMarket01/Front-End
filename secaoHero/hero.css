@@ -6,7 +6,7 @@
 }
 
 
-.divisao {
+.divisao_secaoHero {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -15,20 +15,14 @@
 }
 
 
-.texto {
+.texto_esquerdo_secaoHero {
 
     padding: 20px;
     max-width: 1100px;
     align-items: flex-start;
 }
 
-.acoes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.botao {
+.botao_agendar_secaoHero {
     gap: 20px;
     background-color: #0F4C3A;
     border-color: #ffff;
@@ -39,7 +33,7 @@
     margin: 15px;
 }
 
-.botao_b {
+.botao_comoFunciona_secaoHero {
     gap: 20px;
     background-color: #ffff;
     border-color: #6aae48;
@@ -52,7 +46,7 @@
 }
 
 
-.titulo {
+.titulo_secaoHero {
     color: #0F4C3A;
     font-weight: bold;
     font-size: 45px;
@@ -63,7 +57,7 @@
 
 }
 
-.paragrafo {
+.paragrafo_secaoHero {
     max-width: 600px;
     margin: 20px;
     line-height: 30px;
@@ -75,13 +69,13 @@
     gap: 5px;
 
     width: fit-content;
-    border: solid 1px #E5E7EB;
+    border: solid 2px #E5E7EB;
     border-radius: 20px;
     margin: 10px;
     padding: 12px;
     margin-bottom: 20px;
     color: #0F4C3A;
-    background-color: #E5E7EB;
+    background-color: #FFFFFF;
 
     font-size: 13px;
 
@@ -89,7 +83,7 @@
 
 
 
-.cartao {
+.cartao_secaoHero {
     width: 100%;
     max-width: 500px;
     min-width: 0;
@@ -103,7 +97,7 @@
     padding: 30px;
 }
 
-.sub {
+.sub_lojaCentral_secaoHero {
     display: flex;
     font-weight: bold;
     font-size: 14px;
@@ -115,15 +109,16 @@
 
 }
 
-.espaco_card {
+.espaco_card_secaoHero {
     display: grid;
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 20px;
+    width: 100%;
 
 }
 
-.mini_card {
+.mini_cards_cinzas_secaoHero {
     display: grid;
     border: #E5E7EB solid 1px;
     border-radius: 12px;
@@ -133,41 +128,45 @@
 
 }
 
-.mini_tit {
+.mini_tit_dosCards_secaoHero {
     color: #0F4C3A;
     font-size: 18px;
     font-weight: bold;
 
 }
 
-.mini_sub_tit {
+.mini_sub_tit_dosCards_secaoHero {
     color: #A9C29C;
     font-size: 8px;
     font-weight: bold;
 }
 
-.mini_legenda {
+.mini_legenda_secaoHero {
     color: #6aae48;
     font-size: 10px;
     font-weight: bold;
 }
 
-.cartao_subtexto {
+.cartao_subtexto_legenda_secaoHero {
     display: flex;
     flex-direction: row;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 8px;
+    margin-left: 8px;
     justify-content: space-between;
 
 }
 
-.cartao_subtitulo {
+.cartao_subtitulo_secaoHero {
     display: flex;
     font-weight: bold;
     color: #0F4C3A;
     font-size: 13px;
+    justify-content: flex-end;
 }
 
-.cartao_leg {
+.cartao_legendaGrafico_secao_hero {
     display: flex;
     align-items: center;
     font-size: 10px;
@@ -175,7 +174,7 @@
     font-weight: bold;
 }
 
-.mini_qdd {
+.mini_qdd_verde_secaoHero {
     display: flex;
     width: 10px;
     min-width: 0px;
@@ -185,7 +184,7 @@
     background-color: #6aae48;  
 }
 
-.mini_qddM {
+.mini_qdd_media_secaoHero {
     display: flex;
     width: 10px;
     flex-shrink: 0px;
@@ -195,27 +194,28 @@
     background-color: #E4ECE7;
 }
 
-.barras_legenda {
+
+.barras_legenda_secaoHero {
     color: #909090;
     display: flex;
     justify-content: flex-start;
     font-size: 14px;
 }
 
-.barra_num {
+.barra_num_secaoHero {
     display: flex;
     justify-content: flex-end;
     font-size: 10px;
 }
 
-.barra_uni {
+.barra_unidade_secaoHero {
     display: grid;
     grid-template-columns: 90px minmax(0, 1fr) 50px;
     align-items: center;
     margin: 8px;
 }
 
-.entrada {
+.entrada_barra_secaoHero {
     display: flex;
     justify-content: flex-start;
     width: 100%;
@@ -226,60 +226,60 @@
 
 }
 
-.corredor1 {
+.corredor1_secaoHero {
     display: flex;
     justify-content: flex-start;
-    width: 220px;
+    width: 95%;
     height: 20px;
     border: #6aae48 solid 1px;
     background-color: #6aae48;
     border-radius: 5px;
 }
 
-.corredor1_media {
+.corredor1_media_secaoHero {
     display: flex;
     justify-content: flex-start;
-    width: 240px;
+    width: 87%;
     height: 20px;
     border: #E4ECE7 solid 1px;
     background-color: #E4ECE7;
     border-radius: 5px;
 }
 
-.corredor2 {
+.corredor2_secaoHero {
     display: flex;
     justify-content: flex-start;
-    width: 180px;
+    width: 65%;
     height: 20px;
     border: #6aae48 solid 1px;
     background-color: #6aae48;
     border-radius: 5px;
 }
 
-.corredor3 {
+.corredor3_secaoHero {
     display: flex;
     justify-content: flex-start;
-    width: 100px;
+    width: 77%;
     height: 20px;
     border: #6aae48 solid 1px;
     background-color: #6aae48;
     border-radius: 5px;
 }
 
-.corredor3_media {
+.corredor3_secaoHero_media {
     display: flex;
     justify-content: flex-start;
-    width: 180px;
+    width: 65%;
     height: 20px;
     border: #E4ECE7 solid 1px;
     background-color: #E4ECE7;
     border-radius: 5px;
 }
 
-.caixa {
+.caixa_secaoHero {
     display: flex;
     justify-content: flex-start;
-    width: 200px;
+    width: 75%;
     height: 20px;
     border: #6aae48 solid 1px;
     background-color: #6aae48;
@@ -287,12 +287,12 @@
 }
 
 
-.aviso {
+.aviso_secaoHero {
     display: flex;
     align-items: center;
     gap: 16px;
     margin-top: 20px;
-    width: 450px;
+    width: 100%;
     padding: 12px 16px;
     background-color: #F7FFAD;
     border-radius: 10px;
@@ -320,26 +320,27 @@
     margin-top: 8px;
 }
 
-.aviso_conteudo {
+.aviso_conteudo_secaoHero {
     flex: 1;
     min-width: 0;
 }
 
-.aviso_titulo {
+.aviso_titulo_secaoHero {
     color: #111111;
     font-size: 13px;
     font-weight: 700;
     margin-bottom: 3px;
 }
 
-.aviso_text {
+.aviso_paragrafo_secaoHero {
     color: #222222;
     font-size: 11px;
     line-height: 1.45;
     margin: 0;
+    max-width: 300px;
 }
 
-.fundo {
+.fundo_secaoHero {
     min-height: 330px;
     background:
         linear-gradient(
@@ -347,4 +348,15 @@
             rgba(255, 255, 255, 0.65)
         ),
         url("https://statics.otvfoco.com.br/2026/02/1-29.webp") center / cover no-repeat;       
+}
+
+
+@media (max-width: 768px){
+    .divisao_secaoHero{flex-direction: column; padding: 10px;}
+    .titulo_secaoHero{font-size: 30px; line-height: 40px;}
+    .cartao_secaoHero{padding: 10px; }
+    .mini_tit_dosCards_secaoHero{font-size: 14px;}
+    .espaco_card_secaoHero{grid-template-columns: 1fr 1fr;}
+    .botao_agendar_secaoHero{padding: 10px; margin: 5px;}
+    .botao_comoFunciona_secaoHero{padding: 10px; margin: 5px;}
 }
