@@ -5,110 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-cadastro.css">
 </head>
 
 <body>
-<<<<<<< HEAD:cadastro-flowmarket/cadastro.html
+
     <div class="header">
         <img class="icone-carrinho" src="carrinho.png" alt="Ícone de carrinho de compras">
         <h1 class="title">Flow<span style="color: #6AAE48">market</span></h1>
     </div>
-=======
->>>>>>> 0d322343308e58434d9ca2749df74fbb763d7459:cadastro-flowmarket/index.html
 
-    <div class="body-f">
+    <form action="/cadastrar-usuario" class="cad-container">
 
-        <div class="header">
-            <h1 class="title">Flow<span style="color: #6AAE48">market</span></h1>
-        </div>
-<<<<<<< HEAD:cadastro-flowmarket/cadastro.html
-
-        <div class="campo">
-            <label for="ipt_nome">Nome Completo:</label>
-            <input type="text" id="ipt_nome" class="form-input" placeholder="Ex: João da Silva">
+        <div class="form-header">
+            <h1 class="title">Criar Conta</h1>
+            <p class="form-text">
+                Cadastro com dados da empresa, leva menos de um minuto.
+            </p>
         </div>
 
         <div class="campo">
-            <label for="ipt_email">E-mail Corporativo:</label>
-            <input type="email" id="ipt_email" class="form-input" placeholder="Ex: nome@empresa.com.br">
+            <label for="ipt_nome">Nome Completo</label>
+            <input type="text" id="ipt_nome" class="form-input" placeholder="Ex: João da Silva" required>
         </div>
 
         <div class="campo">
-            <label for="ipt_senha">Senha:</label>
-            <input type="password" id="ipt_senha" class="form-input" placeholder="Mínimo de 8 caracteres">
+            <label for="ipt_email">E-mail Corporativo</label>
+            <input type="email" id="ipt_email" class="form-input" placeholder="Ex: nome@empresa.com.br" required>
         </div>
 
         <div class="campo">
-            <label for="ipt_conf_senha">Confirmar senha:</label>
-            <input type="password" id="ipt_conf_senha" class="form-input" placeholder="Repita sua senha">
+            <label for="ipt_senha">Senha</label>
+            <input type="password" id="ipt_senha" class="form-input" placeholder="Mínimo de 8 caracteres" required>
         </div>
 
         <div class="campo">
-            <label for="ipt_razao">Razão Social da empresa:</label>
-            <input type="text" id="ipt_razao" class="form-input" placeholder="Ex: Mercado Ltda.">
+            <label for="ipt_conf_senha">Confirmar senha</label>
+            <input type="password" id="ipt_conf_senha" class="form-input" placeholder="Repita sua senha" required>
         </div>
 
         <div class="campo">
-            <label for="ipt_nome_fantasia">Nome fantasia:</label>
-            <input type="text" id="ipt_nome_fantasia" class="form-input" placeholder="Ex: Mercado Silva">
+            <label for="ipt_razao">Razão social da empresa</label>
+            <input type="text" id="ipt_razao" class="form-input" placeholder="Ex: Mercado Ltda." required>
         </div>
 
         <div class="campo">
-            <label for="ipt_cnpj">CNPJ:</label>
-            <input type="text" id="ipt_cnpj" class="form-input" placeholder="00.000.000/0000-00">
+            <label for="ipt_nome_fantasia">Nome fantasia</label>
+            <input type="text" id="ipt_nome_fantasia" class="form-input" placeholder="Ex: Mercado Silva" required>
         </div>
 
+        <div class="campo">
+            <label for="ipt_cnpj">CNPJ</label>
+            <input type="text" id="ipt_cnpj" class="form-input" placeholder="00.000.000/0000-00" required>
+        </div>
 
         <div class="campo">
-            <label>Porte da loja</label>
+            <label>Porte da loja:</label>
 
             <div class="opcoes-porte">
 
                 <label for="porte_grande">
-                    <input type="radio" id="porte_grande" name="porte" value="grande">
+                    <input type="radio" id="porte_grande" value="grande" required>
                     Grande Porte
                 </label>
 
-
                 <label for="porte_medio">
-                    <input type="radio" id="porte_medio" name="porte" value="medio">
+                    <input type="radio" id="porte_medio" value="medio">
                     Médio Porte
                 </label>
 
-
                 <label for="porte_pequeno">
-                    <input type="radio" id="porte_pequeno" name="porte" value="pequeno">
+                    <input type="radio" id="porte_pequeno" value="pequeno">
                     Pequeno Porte
                 </label>
-=======
-    
-        <form action="/cadastrar-usuario" class="cad-container">
-    
-            <div class="form-header">
-                <h1 class="title">Criar Conta</h1>
-    
-                <p class="form-text">Cadastro com dados da empresa, leva menos de um minuto.</p>
-            </div>
-    
-            <div class="campo">
-                <label for="ipt_nome">Nome Completo:</label>
-                <input type="text" id="ipt_nome" class="form-input">
->>>>>>> 0d322343308e58434d9ca2749df74fbb763d7459:cadastro-flowmarket/index.html
-            </div>
 
-<<<<<<< HEAD:cadastro-flowmarket/cadastro.html
+            </div>
+        </div>
+
         <div class="campo">
             <label for="ipt_telefone">Telefone:</label>
-            <input type="tel" id="ipt_telefone" class="form-input" placeholder="(11) 99999-9999">
+            <input type="tel" id="ipt_telefone" class="form-input" placeholder="(11) 99999-9999" required>
         </div>
 
         <div>
-            <button type="submit" class="button-cadastro">Cadastrar</button>
+            <button type="submit" class="button-cadastro">
+                Cadastrar
+            </button>
         </div>
 
         <div>
@@ -118,81 +100,6 @@
         </div>
 
     </form>
-=======
-            <div class="campo">
-                <label for="ipt_nome">Nome da empresa:</label>
-                <input type="text" id="ipt_nome" class="form-input">
-            </div>
-
-            <div class="campo">
-                <label for="ipt_email">E-mail Corporativo:</label>
-                <input type="email" id="ipt_email" class="form-input">
-            </div>
-    
-            <div class="campo">
-                <label for="ipt_senha">Senha:</label>
-                <input type="password" id="ipt_senha" class="form-input">
-            </div>
-    
-            <div class="campo">
-                <label for="ipt_conf_senha">Confirmar senha:</label>
-                <input type="password" id="ipt_conf_senha" class="form-input">
-            </div>
-    
-            <div class="campo">
-                <label for="ipt_razao">Razão Social da empresa:</label>
-                <input type="text" id="ipt_razao" class="form-input">
-            </div>
-    
-            <div class="campo">
-                <label for="ipt_cnpj">CNPJ:</label>
-                <input type="text" id="ipt_cnpj" class="form-input">
-            </div>
-    
-    
-            <div class="campo">
-                <label>Porte da loja</label>
-    
-                <div class="opcoes-porte">
-    
-                    <label for="porte_grande">
-                        <input type="radio" id="porte_grande" name="porte" value="grande">
-                        Grande Porte
-                    </label>
-    
-    
-                    <label for="porte_medio">
-                        <input type="radio" id="porte_medio" name="porte" value="medio">
-                        Médio Porte
-                    </label>
-    
-    
-                    <label for="porte_pequeno">
-                        <input type="radio" id="porte_pequeno" name="porte" value="pequeno">
-                        Pequeno Porte
-                    </label>
-                </div>
-            </div>
-    
-            <div class="campo">
-                <label for="ipt_telefone">Telefone:</label>
-                <input type="tel" id="ipt_telefone" class="form-input">
-            </div>
-    
-            <div>
-                <button type="submit" class="button-cadastro">Cadastrar</button>
-            </div>
-    
-            <div>
-                <p class="form-text">
-                    Ao criar a conta, você concorda com os Termos de Uso e com o tratamento de dados previsto na LGPD.
-                </p>
-            </div>
-    
-        </form>
-    </div>
-</body>
->>>>>>> 0d322343308e58434d9ca2749df74fbb763d7459:cadastro-flowmarket/index.html
 
     <div class="text-login">
         <p>Já tem uma conta? <a href="#">Entrar</a></p>
