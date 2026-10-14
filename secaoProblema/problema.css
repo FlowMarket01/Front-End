@@ -7,11 +7,11 @@
 
 
 
-.cego {
+.cego_secaoProblema {
     color: #6aae48;
 }
 
-.paragrafo {
+.paragrafo_secaoProblema {
     flex: 1;
     color: #3D6E5F;
     font-size: 18px;
@@ -19,7 +19,7 @@
     margin-bottom: 10px;
 }
 
-.divisao {
+.divisao_secaoProblema {
     display: flex;
     padding: 50px;
     justify-content: space-around;
@@ -28,13 +28,14 @@
 
 }
 
-.risco {
+.risco_secaoProblema {
     border-left: solid 1px #6aae48;
-    height: 90px;
+    height: 100%;
+    min-height: 90px;
     padding: 10px;
 }
 
-.fonte {
+.fonte_secaoProblema {
     font-size: 14px;
     line-height: 1.5;
     color: #6F6F6F;
@@ -45,7 +46,7 @@
 
 
 
-.titulo_eSubs {
+.titulo_eSubs_secaoProblema {
     color: #0F4C3A;
     font-weight: bold;
     font-size: 40px;
@@ -54,14 +55,14 @@
     max-width: 300px;
 }
 
-.colunas {
+.blocos_secaoProblema {
     display: grid;
     grid-template-columns: 2fr 2fr;
     gap: 10px;
 }
 
 
-.sub-titulo {
+.sub-tituloBlocos_secaoProblema {
     color: #6dae4b;
     font-weight: bold;
     font-family: sans-serif;
@@ -70,8 +71,9 @@
 
 }
 
-.card {
-    width: 350px;
+.card_individual_secaoProblema {
+    width: 100%;
+    max-width: 350px;
         min-width: 0;
 
     height: fit-content;
@@ -81,4 +83,14 @@
     border-radius: 20px;
     margin: 10px;
     padding: 40px;
+}
+
+
+@media(max-width: 768px){
+    .divisao_secaoProblema{flex-direction: column; align-items: center; padding: 24px;}
+    .blocos_secaoProblema{grid-template-columns: 1fr; gap: 5px}
+    .paragrafo_secaoProblema{font-size: 16px; }
+    .titulo_eSubs_secaoProblema{font-size: 30px;}
+    .fonte_secaoProblema{font-size: 13px;}
+
 }
