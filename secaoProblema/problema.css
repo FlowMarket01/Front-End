@@ -24,7 +24,7 @@
     padding: 50px;
     justify-content: space-around;
     align-items: flex-start;
-    gap: 30px;
+    gap: 40px;
 
 }
 
@@ -57,7 +57,7 @@
 .blocos_secaoProblema {
     display: grid;
     grid-template-columns: 2fr 2fr;
-    gap: 10px;
+    gap: 20px;
 }
 
 
@@ -86,8 +86,8 @@
 
 
 @media(max-width: 768px){
-    .divisao_secaoProblema{flex-direction: column; align-items: center; padding: 24px;}
-    .blocos_secaoProblema{grid-template-columns: 1fr; gap: 5px}
+    .divisao_secaoProblema{flex-direction: column; align-items: stretch; padding: 24px;}
+    .blocos_secaoProblema{grid-template-columns: 1fr; gap: 15px}
     .paragrafo_secaoProblema{font-size: 16px; }
     .titulo_eSubs_secaoProblema{font-size: 30px;}
     .fonte_secaoProblema{font-size: 13px;}
