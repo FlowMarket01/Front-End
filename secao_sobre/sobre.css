@@ -11,8 +11,8 @@
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    width: 100%;
-    height: 100vh;
+    /* width: 100%; */
+    min-height: 100vh;
     color: #6F6F6F;
 }
 
@@ -41,13 +41,18 @@
 
 }
 
+.div-cabecalho{
+    width: 1250px;
+    border: 2px solid red;
+}
+
 .container-time{
     /* display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 20px; */
     display: flex;
     border: 7px solid;
-    width: 100vw;
+    /* width: 100vw; */
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
