@@ -42,10 +42,15 @@
 }
 
 .container-time{
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3,1fr);
+    gap: 20px; */
+    display: flex;
+    border: 7px solid;
+    width: 70vw;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    
 }
 
 .card{
@@ -61,6 +66,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 400px;
+    height: 100%;
 }
 .avatar{
   width: 60px;
@@ -90,11 +97,4 @@
     color: #6AAE48;
     font-weight: 400;
     
-}
-
-@media (max-width: 750px) {
-  .corpo-principal {
-    width: 60%;
-    
-  }
 }
