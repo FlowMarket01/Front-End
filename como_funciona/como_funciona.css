@@ -129,7 +129,37 @@
 
 .step-content .p-como_funciona {
   font-size: 12px;
+.step-content .p-como_funciona {
+  font-size: 12px;
   line-height: 1.5;
 }
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
 
+  .div-header .h1-como_funciona {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .body-f {
+    padding: 32px 16px;
+  }
+
+  .div-header .h1-como_funciona {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .step-card {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .legend {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 
