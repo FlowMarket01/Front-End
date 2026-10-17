@@ -54,6 +54,16 @@ html{
     color: #797979;
 }
 
+.periodoDash{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    color: #0F4C3A;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 .sectionDash{
     display: flex;
     margin: 20px 0px 5px 0px;
@@ -107,7 +117,8 @@ html{
     gap: 100px;
 }
 
-.supDivSelect select{
+.supDivSelect select,
+.periodoDash select{
     width: 170px;
     text-align: center;
     cursor: pointer;
@@ -115,9 +126,12 @@ html{
     border-radius: 8px;
     color: #0F4C3A;
     font-weight: 600;
+    background-color: #fff;
+    padding: 8px;
 }
 
-.supDivSelect select:focus{
+.supDivSelect select:focus,
+.periodoDash select:focus{
     outline: none;
     box-shadow: none;
 }
