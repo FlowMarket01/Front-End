@@ -202,6 +202,34 @@
         }
       }
 
+      new Chart(graficoBarraCorredorMaiorFluxo, {
+        type: "bar",
+        data: {
+          labels: corredoresRanking.map(function (c) {
+            return c.identificacao;
+          }),
+          datasets: [
+            {
+              data: corredoresRanking.map(function (c) {
+                return c.pontuacao;
+              }),
+              backgroundColor: "#6AAE48",
+              borderRadius: { topLeft: 6, topRight: 6 },
+              maxBarThickness: 42,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+          scales: { x: escalaCategorica, y: escalaContagem },
+        },
+      });
+
       
     </script>
     
