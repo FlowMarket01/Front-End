@@ -165,6 +165,43 @@
       let estado = ["Vazio", "Moderado", "Cheio"];
 
       let horas = [];
+      for (let h = 0; h < 24; h++) horas.push(String(h).padStart(2, "0") + "h");
+
+      let tooltipMarca = {
+        backgroundColor: "#0F4C3A",
+        titleFont: { family: "'Poppins', sans-serif", weight: 600, size: 12 },
+        bodyFont: { family: "'Poppins', sans-serif", weight: 400, size: 12 },
+        padding: 10,
+        cornerRadius: 8,
+        displayColors: false,
+      };
+
+      let escalaContagem = {
+        beginAtZero: true,
+        ticks: { precision: 0 },
+        grid: { color: "rgba(15, 76, 58, 0.08)" },
+        border: { display: false },
+      };
+
+      let escalaCategorica = {
+        grid: { display: false },
+        border: { display: false },
+      };
+
+      window.onload = function(){
+        let cont = 0
+        while(cont < corredoresRanking.length){
+            sltCorredores.innerHTML += `<option value="${corredoresRanking[cont].identificacao}">${corredoresRanking[cont].identificacao}</option>`
+            cont++
+        }
+
+        let cont2 = 0
+        while(cont2 < caixasRanking.length){
+            sltCaixas.innerHTML += `<option value="${caixasRanking[cont2].identificacao}">${caixasRanking[cont2].identificacao}</option>`
+            cont2++
+        }
+      }
+
       
     </script>
     
