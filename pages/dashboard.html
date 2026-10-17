@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="cabecaLhoDash">
+      <h1>
+        <div class="molduraLogo">
+          <img src="./img/iconCart.png" alt="iconCart" />
+        </div>
+        Flow<span>Market</span>
+      </h1>
+    </header>
+
+    <main class="mainDash">
+        <h1>Fluxo e filas - últimas 24 horas</h1>
+        <p>Mercado Caramico - leituras dos sensores ultrassônicos de corredor e das zonas de fila - dados de demonstração</p>
+
+      <section id="sectionGraficoCorredor" class="sectionDash">
+        <div id="cardCorredorMaiorFluxo" class="divCard">
+          <h1>Corredores com maior fluxo</h1>
+          <p>
+            Ativações de presença nas últimas 24 h - soma dos dois sensores de
+            acesso de cada corredor.
+          </p>
+
+          <div class="chartContainer">
+            <canvas
+              id="graficoBarraCorredorMaiorFluxo"
+              aria-label="grafico de Barra de Corredor com Maior Fluxo"
+            ></canvas>
+          </div>
+        </div>
+
+        <div id="cardCorredorPicoFluxo" class="divCard">
+          <h1>Pico de fluxo por corredor</h1>
+          <div id="supCorredorPicoFluxo" class="supDivSelect">
+            <p>
+              Ativações por hora nas últimas 24 h. Escolha o corredor para
+              atualizar.
+            </p>
+            <select name="" id="sltCorredores">
+              <!--gerar option com js-->
+            </select>
+          </div>
+          <div class="chartContainer">
+            <canvas
+              id="graficoLinhaCorredorPicoFluxo"
+              class="canvasGrafico"
+              aria-label="grafico de Linha de Corredor em Pico de Fluxo"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="sectionGraficoCaixa" class="sectionDash">
+        <div id="cardCaixaMaiorTempo" class="divCard">
+          <h1>Caixas com maior tempo em fila cheia</h1>
+          <p>Minutos acumulados no estado "cheio" nas últimas 24h.</p>
+
+          <div class="chartContainer">
+            <canvas
+              id="graficoBarraCaixaMaiorTempo"
+              class="canvasGrafico"
+              aria-label="grafico de Barra de Caixa com Maior Tempo"
+            ></canvas>
+          </div>
+        </div>
+
+        <div id="cardCaixaPicoOcupacao" class="divCard">
+          <h1>Pico de ocupação por caixa</h1>
+          <div id="supCaixaPicoOcupacao" class="supDivSelect">
+            <p>
+              Estado da fila por hora - vazio, moderado ou cheio. Escolha o
+              caixa para atualizar.
+            </p>
+            <select name="" id="sltCaixas">
+              <!--gerar option com js-->
+            </select>
+          </div>
+          <div class="chartContainer">
+            <canvas
+              id="graficoLinhaCaixaPicoOcupacao"
+              class="canvasGrafico"
+              aria-label="grafico de Linha de Caixa em Pico Ocupacao"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    
+  </body>
+</html>
