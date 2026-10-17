@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.cabecaLhoDash{
+    padding: 20px 50px;
+}
+
+.cabecaLhoDash h1{
+    display: flex;
+    align-items: center;
+    color: #0F4C3A;
+    font-size: 3rem;
+}
+
+.cabecaLhoDash h1 span{
+    color: #6AAE48;
+}
+
+.cabecaLhoDash .molduraLogo{
+    height: 50px;
+    width: 40px;
+}
+
+.cabecaLhoDash .molduraLogo img{
+    height: 100%;
+    width: 100%;
+}
+
+.mainDash{
+    background-color: #F4F7F5;
+    padding: 25px 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDash > h1:first-of-type{
+    font-size: 3.6rem;
+    color: #0F4C3A;
+}
+
+.mainDash > p:first-of-type{
+    font-size: 1.6rem;
+    color: #797979;
+}
+
+.sectionDash{
+    display: flex;
+    margin: 20px 0px 5px 0px;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.divCard{
+    background-color: #fff;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    height: 541px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 400px;
+}
+
+.divCard h1{
+    font-size: 2.4rem;
+    color: #0F4C3A;
+}
+
+.divCard p{
+    color: #9DA798;
+    font-size: 1.4rem;
+}
+
+.canvasGrafico{
+    height: 100%;
+    width: 100%;
+}
+
+.chartContainer {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+}
+
+.chartContainer canvas {
+    display: block;
+}
+
+.supDivSelect{
+    /* border: 2px solid black; */
+    display: flex;
+    gap: 100px;
+}
+
+.supDivSelect select{
+    width: 170px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    color: #0F4C3A;
+    font-weight: 600;
+}
+
+.supDivSelect select:focus{
+    outline: none;
+    box-shadow: none;
+}

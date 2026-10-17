@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowMarket</title>
+    <link rel="stylesheet" href="../css/styleDash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="cabecaLhoDash">
+      <h1>
+        <div class="molduraLogo">
+          <img src="../img/iconCart.png" alt="iconCart" />
+        </div>
+        Flow<span>Market</span>
+      </h1>
+    </header>
+
+    <main class="mainDash">
+        <h1>Fluxo e filas - últimas 24 horas</h1>
+        <p>Mercado Caramico - leituras dos sensores ultrassônicos de corredor e das zonas de fila - dados de demonstração</p>
+
+      <section id="sectionGraficoCorredor" class="sectionDash">
+        <div id="cardCorredorMaiorFluxo" class="divCard">
+          <h1>Corredores com maior fluxo</h1>
+          <p>
+            Ativações de presença nas últimas 24 h - soma dos dois sensores de
+            acesso de cada corredor.
+          </p>
+
+          <div class="chartContainer">
+            <canvas
+              id="graficoBarraCorredorMaiorFluxo"
+              aria-label="grafico de Barra de Corredor com Maior Fluxo"
+            ></canvas>
+          </div>
+        </div>
+
+        <div id="cardCorredorPicoFluxo" class="divCard">
+          <h1>Pico de fluxo por corredor</h1>
+          <div id="supCorredorPicoFluxo" class="supDivSelect">
+            <p>
+              Ativações por hora nas últimas 24 h. Escolha o corredor para
+              atualizar.
+            </p>
+            <select name="" id="sltCorredores">
+              <!--gerar option com js-->
+            </select>
+          </div>
+          <div class="chartContainer">
+            <canvas
+              id="graficoLinhaCorredorPicoFluxo"
+              class="canvasGrafico"
+              aria-label="grafico de Linha de Corredor em Pico de Fluxo"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="sectionGraficoCaixa" class="sectionDash">
+        <div id="cardCaixaMaiorTempo" class="divCard">
+          <h1>Caixas com maior tempo em fila cheia</h1>
+          <p>Minutos acumulados no estado "cheio" nas últimas 24h.</p>
+
+          <div class="chartContainer">
+            <canvas
+              id="graficoBarraCaixaMaiorTempo"
+              class="canvasGrafico"
+              aria-label="grafico de Barra de Caixa com Maior Tempo"
+            ></canvas>
+          </div>
+        </div>
+
+        <div id="cardCaixaPicoOcupacao" class="divCard">
+          <h1>Pico de ocupação por caixa</h1>
+          <div id="supCaixaPicoOcupacao" class="supDivSelect">
+            <p>
+              Estado da fila por hora - vazio, moderado ou cheio. Escolha o
+              caixa para atualizar.
+            </p>
+            <select name="" id="sltCaixas">
+              <!--gerar option com js-->
+            </select>
+          </div>
+          <div class="chartContainer">
+            <canvas
+              id="graficoLinhaCaixaPicoOcupacao"
+              class="canvasGrafico"
+              aria-label="grafico de Linha de Caixa em Pico Ocupacao"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let corredoresRanking = [
+        { identificacao: "Corredor 1", pontuacao: 1482 },
+        { identificacao: "Corredor 2", pontuacao: 1244 },
+        { identificacao: "Corredor 3", pontuacao: 986 },
+        { identificacao: "Corredor 4", pontuacao: 742 },
+        { identificacao: "Hortifrúti", pontuacao: 655 },
+        { identificacao: "Padaria", pontuacao: 438 },
+      ];
+
+      let caixasRanking = [
+          { identificacao: "Caixa 1", minutosEmCheio: 96 },
+          { identificacao: "Caixa 2", minutosEmCheio: 141 },
+          { identificacao: "Caixa 3", minutosEmCheio: 48 },
+          { identificacao: "Caixa 4", minutosEmCheio: 24 },
+          { identificacao: "Caixa 5", minutosEmCheio: 12 },
+      ];
+
+      let corredorSeries = {
+        "Corredor 1": [
+          3, 1, 1, 0, 1, 4, 19, 42, 66, 85, 105, 130, 119, 96, 78, 77, 85, 100,
+          116, 127, 107, 70, 39, 11,
+        ],
+        "Corredor 2": [
+          3, 1, 1, 0, 1, 3, 16, 35, 55, 71, 88, 109, 100, 81, 66, 65, 71, 84,
+          97, 107, 90, 59, 33, 8,
+        ],
+        "Corredor 3": [
+          2, 1, 0, 0, 1, 3, 13, 28, 44, 57, 70, 86, 79, 64, 52, 51, 57, 66, 77,
+          84, 71, 47, 26, 7,
+        ],
+        "Corredor 4": [
+          1, 1, 0, 0, 1, 2, 10, 21, 33, 42, 52, 65, 60, 48, 39, 39, 42, 50, 58,
+          63, 54, 35, 20, 6,
+        ],
+        "Hortifrúti": [
+          1, 1, 0, 0, 1, 2, 8, 18, 29, 37, 46, 57, 52, 42, 34, 34, 37, 44, 51,
+          56, 47, 31, 17, 10,
+        ],
+        "Padaria": [
+          1, 0, 0, 0, 1, 3, 15, 26, 22, 29, 30, 31, 27, 22, 19, 20, 23, 28, 34,
+          41, 27, 21, 12, 6,
+        ],
+      };
+
+      let caixaSeries = {
+        "Caixa 1": [
+          0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1,
+          0,
+        ],
+        "Caixa 2": [
+          0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1,
+          1,
+        ],
+        "Caixa 3": [
+          0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1,
+          0,
+        ],
+        "Caixa 4": [
+          0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0,
+          0,
+        ],
+        "Caixa 5": [
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1,
+          0,
+        ],
+      };
+
+      let estado = ["Vazio", "Moderado", "Cheio"];
+
+      let horas = [];
+      for (let h = 0; h < 24; h++) horas.push(String(h).padStart(2, "0") + "h");
+
+      let tooltipMarca = {
+        backgroundColor: "#0F4C3A",
+        titleFont: { family: "'Poppins', sans-serif", weight: 600, size: 12 },
+        bodyFont: { family: "'Poppins', sans-serif", weight: 400, size: 12 },
+        padding: 10,
+        cornerRadius: 8,
+        displayColors: false,
+      };
+
+      let escalaContagem = {
+        beginAtZero: true,
+        ticks: { precision: 0 },
+        grid: { color: "rgba(15, 76, 58, 0.08)" },
+        border: { display: false },
+      };
+
+      let escalaCategorica = {
+        grid: { display: false },
+        border: { display: false },
+      };
+
+      window.onload = function(){
+        let cont = 0
+        while(cont < corredoresRanking.length){
+            sltCorredores.innerHTML += `<option value="${corredoresRanking[cont].identificacao}">${corredoresRanking[cont].identificacao}</option>`
+            cont++
+        }
+
+        let cont2 = 0
+        while(cont2 < caixasRanking.length){
+            sltCaixas.innerHTML += `<option value="${caixasRanking[cont2].identificacao}">${caixasRanking[cont2].identificacao}</option>`
+            cont2++
+        }
+      }
+
+      new Chart(graficoBarraCorredorMaiorFluxo, {
+        type: "bar",
+        data: {
+          labels: corredoresRanking.map(function (c) {
+            return c.identificacao;
+          }),
+          datasets: [
+            {
+              data: corredoresRanking.map(function (c) {
+                return c.pontuacao;
+              }),
+              backgroundColor: "#6AAE48",
+              borderRadius: { topLeft: 6, topRight: 6 },
+              maxBarThickness: 42,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+          scales: { x: escalaCategorica, y: escalaContagem },
+        },
+      });
+
+      let graficoLinhaCorredor = new Chart(graficoLinhaCorredorPicoFluxo, {
+        type: "line",
+        data: {
+          labels: horas,
+          datasets: [
+            {
+              data: corredorSeries[corredoresRanking[0].identificacao],
+              borderWidth: 1,
+              backgroundColor: "#6AAE48",
+              tension: 0.5,
+              borderColor: "#6AAE48",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+        },
+      });
+
+      sltCorredores.addEventListener("change", function() {
+        graficoLinhaCorredor.data.datasets[0].data =
+          corredorSeries[sltCorredores.value];
+        graficoLinhaCorredor.update();
+      });
+
+      new Chart(graficoBarraCaixaMaiorTempo, {
+        type: "bar",
+        data: {
+          labels: caixasRanking.map(function (c) {
+            return c.identificacao;
+          }),
+          datasets: [
+            {
+              data: caixasRanking.map(function (c) {
+                return c.minutosEmCheio;
+              }),
+              backgroundColor: "#0F4C3A",
+              borderRadius: { topLeft: 6, topRight: 6 },
+              maxBarThickness: 42,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+          scales: { x: escalaCategorica, y: escalaContagem },
+        },
+      });
+
+      let graficoLinhaCaixa = new Chart(graficoLinhaCaixaPicoOcupacao, {
+        type: "line",
+        data: {
+          labels: horas,
+          datasets: [
+            {
+              data: caixaSeries["Caixa 1"],
+              borderColor: "#6AAE48",
+              backgroundColor: "rgba(106, 174, 72, 0.10)",
+              borderWidth: 2,
+              fill: true,
+              stepped: true,
+              pointRadius: 0,
+              pointHitRadius: 12,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: Object.assign({}, tooltipMarca, {
+              callbacks: {
+                label: function (ctx) {
+                  return " Estado: " + estado[ctx.parsed.y];
+                },
+              },
+            }),
+          },
+          scales: {
+            x: escalaCategorica,
+            y: {
+              min: 0,
+              max: 2,
+              ticks: {
+                callback: function (valor) {
+                  return estado[valor];
+                },
+              },
+            border: { display: false },
+            },
+          },
+        },
+      });
+
+      sltCaixas.addEventListener("change", function() {
+        graficoLinhaCaixa.data.datasets[0].data =
+          caixaSeries[sltCaixas.value];
+        graficoLinhaCaixa.update();
+      });
+    </script>
+    
+  </body>
+</html>
