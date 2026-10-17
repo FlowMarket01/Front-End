@@ -230,6 +230,36 @@
         },
       });
 
+      let graficoLinhaCorredor = new Chart(graficoLinhaCorredorPicoFluxo, {
+        type: "line",
+        data: {
+          labels: horas,
+          datasets: [
+            {
+              data: corredorSeries[corredoresRanking[0].identificacao],
+              borderWidth: 1,
+              backgroundColor: "#6AAE48",
+              tension: 0.5,
+              borderColor: "#6AAE48",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+        },
+      });
+
+      sltCorredores.addEventListener("change", function() {
+        graficoLinhaCorredor.data.datasets[0].data =
+          corredorSeries[sltCorredores.value];
+        graficoLinhaCorredor.update();
+      });
+
       
     </script>
     
