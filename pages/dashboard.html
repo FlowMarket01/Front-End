@@ -40,7 +40,7 @@
           <div class="cardKpi" id="cardKpi_CorredorAcionamento">
 
             <h3 id="h3_CorredorAcionamento">Acionamentos total nos corredores nas últimas 24 horas</h3>
-            <h1>teste teste</h1>
+            <h1 id="h1_acionamentoTotal">teste teste</h1>
 
           </div>
 
@@ -434,6 +434,18 @@
         graficoLinhaCaixa.update();
       });
 
+      function acionamentoTotalCorredores(corredoresRanking, dia = 1){
+        let maior = corredoresRanking[0].pontuacao
+        for(let i = 0; i < corredoresRanking.length; i++ ){
+          if(maior < corredoresRanking[i].pontuacao){
+            maior = corredoresRanking[i].pontuacao 
+          }
+        }
+
+        
+        h1_acionamentoTotal.textContent = `${maior * dia}`
+      }
+
       function atualizarPeriodo() {
         let dias = Number(sltPeriodo.value);
         let textoPeriodo =
@@ -493,9 +505,11 @@
         graficoBarraCaixa.update();
         graficoLinhaCorredor.update();
         graficoLinhaCaixa.update();
+        acionamentoTotalCorredores(corredoresRanking, dias)
       }
 
       sltPeriodo.addEventListener("change", atualizarPeriodo);
+      sltPeriodo.addEventListener("change", acionamentoTotalCorredores(corredoresRanking));
     </script>
   </body>
 </html>
