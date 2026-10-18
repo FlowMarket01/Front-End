@@ -54,7 +54,7 @@
           <div class="cardKpi" id="cardKpi_horarioPicoCorredor">
 
             <h3 id="h3_horarioPicoCorredor">Horário de pico dos corredores nas últimas 24 horas</h3>
-            <h1>teste teste</h1>
+            <h1 id="h1_horarioPicoCorredor">11h</h1>
 
           </div>
         </div>
@@ -226,6 +226,7 @@
 
       let horas = [];
       for (let h = 0; h < 24; h++) horas.push(String(h).padStart(2, "0") + "h");
+      console.log(horas)
 
       function gerarRotulosPeriodo(dias) {
         if (dias == 1) return horas;
@@ -301,6 +302,38 @@
         h1_corredorMaisMovimento.textContent = corredoresRanking[index].identificacao
       }
 
+      function obterHorarioPico(dias = 1) {
+        let totaisPorHora = [];
+        for (let i = 0; i < 24; i++) {
+          totaisPorHora.push(0);
+        }
+
+        for (let nomeCorredor in corredorSeries) {
+          let serie = corredorSeries[nomeCorredor];
+
+          for (let dia = 0; dia < dias; dia++) {
+            for (let hora = 0; hora < 24; hora++) {
+              totaisPorHora[hora] = totaisPorHora[hora] + serie[hora];
+            }
+          }
+        }
+
+        // descobre qual foi o maior valor
+        let maiorTotal = totaisPorHora[0];
+        for (let i = 1; i < 24; i++) {
+          if (totaisPorHora[i] > maiorTotal) {
+            maiorTotal = totaisPorHora[i];
+          }
+        }
+
+        // procura o primeiro horário que tem o maior valor e ja retorna
+        for (let i = 0; i < 24; i++) {
+          if (totaisPorHora[i] == maiorTotal) {
+            return horas[i];   // retorna o primeiro e para a funcao
+          }
+        }
+      }
+
       window.onload = function () {
         let cont = 0;
         while (cont < corredoresRanking.length) {
@@ -316,6 +349,7 @@
 
         acionamentoTotalCorredores(corredoresRanking)
         corredorMaisMovimentado(corredoresRanking)
+        h1_horarioPicoCorredor.textContent = obterHorarioPico()
       };
 
       let graficoBarraCorredor = new Chart(graficoBarraCorredorMaiorFluxo, {
@@ -493,6 +527,7 @@
         h3_CorredorMaisMovimentado.textContent = "Corredor mais movimentado " + periodoComPreposicao
         h3_horarioPicoCorredor.textContent = "Horário de pico dos corredores " + periodoComPreposicao
         h3_tempoTotalFilaCheia.textContent = "Tempo total em fila cheia " + periodoComPreposicao
+        h1_horarioPicoCorredor.textContent = obterHorarioPico(dias)
 
         graficoBarraCorredor.data.datasets[0].data = corredoresRanking.map(
           function (corredor) {
@@ -522,6 +557,7 @@
         graficoLinhaCorredor.update();
         graficoLinhaCaixa.update();
         acionamentoTotalCorredores(corredoresRanking, dias)
+        
       }
 
       sltPeriodo.addEventListener("change", atualizarPeriodo);
