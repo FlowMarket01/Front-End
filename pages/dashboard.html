@@ -47,7 +47,7 @@
           <div class="cardKpi" id="cardKpi_CorredorMaisMovimentado">
 
             <h3 id="h3_CorredorMaisMovimentado">Corredor mais movimentado nas últimas 24 horas</h3>
-            <h1>teste teste</h1>
+            <h1 id="h1_corredorMaisMovimento">teste teste</h1>
 
           </div>
 
@@ -278,6 +278,29 @@
         border: { display: false },
       };
 
+      function acionamentoTotalCorredores(corredoresRanking, dia = 1){
+        let total = 0
+        for(let i = 0; i < corredoresRanking.length; i++ ){
+          total += corredoresRanking[i].pontuacao
+        }
+
+        
+        h1_acionamentoTotal.textContent = `${total * dia}`
+      }
+
+      function corredorMaisMovimentado(corredoresRanking, dia = 1){
+        let maior = corredoresRanking[0].pontuacao
+        let index = 0
+        for(let i = 0; i < corredoresRanking.length; i++){
+          if(maior < corredoresRanking[i].pontuacao){
+            maior = corredoresRanking[i].pontuacao
+            index = i
+          }
+        }
+
+        h1_corredorMaisMovimento.textContent = corredoresRanking[index].identificacao
+      }
+
       window.onload = function () {
         let cont = 0;
         while (cont < corredoresRanking.length) {
@@ -290,6 +313,9 @@
           sltCaixas.innerHTML += `<option value="${caixasRanking[cont2].identificacao}">${caixasRanking[cont2].identificacao}</option>`;
           cont2++;
         }
+
+        acionamentoTotalCorredores(corredoresRanking)
+        corredorMaisMovimentado(corredoresRanking)
       };
 
       let graficoBarraCorredor = new Chart(graficoBarraCorredorMaiorFluxo, {
@@ -434,15 +460,7 @@
         graficoLinhaCaixa.update();
       });
 
-      function acionamentoTotalCorredores(corredoresRanking, dia = 1){
-        let total = 0
-        for(let i = 0; i < corredoresRanking.length; i++ ){
-          total += corredoresRanking[i].pontuacao
-        }
-
-        
-        h1_acionamentoTotal.textContent = `${total * dia}`
-      }
+      
 
       function atualizarPeriodo() {
         let dias = Number(sltPeriodo.value);
@@ -507,7 +525,6 @@
       }
 
       sltPeriodo.addEventListener("change", atualizarPeriodo);
-      sltPeriodo.addEventListener("change", acionamentoTotalCorredores(corredoresRanking));
     </script>
   </body>
 </html>
