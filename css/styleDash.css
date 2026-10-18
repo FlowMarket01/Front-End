@@ -55,10 +55,10 @@ html{
 }
 
 .sectionKpis{
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 10px 0;
 }
 
 .titulo_kpiDiv{
@@ -77,6 +77,7 @@ html{
 }
 
 .cardKpi{
+    min-width: 290px;
     width: calc(100vw / 3.5);
     border: 1px solid #ccc;
     border-radius: 5px;
