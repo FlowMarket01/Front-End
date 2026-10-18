@@ -56,16 +56,24 @@ html{
 
 .sectionKpis{
     border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulo_kpiDiv{
+    color: #9DA798;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 
 .kpisDiv{
-    border: 4px solid rgb(255, 221, 0);
+    /* border: 4px solid rgb(255, 221, 0); */
     display: flex;
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    
 }
 
 .cardKpi{

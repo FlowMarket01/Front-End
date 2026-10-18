@@ -34,30 +34,34 @@
       </div>
 
       <section class="sectionKpis">
+        <h1 class="titulo_kpiDiv">CORREDORES</h1>
         <div class="kpisDiv">
-          <div class="cardKpi">
+          
+          <div class="cardKpi" id="cardKpi_CorredorAcionamento">
 
-            <h3>Acionamentos total nos corredores (24h)</h3>
+            <h3 id="h3_CorredorAcionamento">Acionamentos total nos corredores nas últimas 24 horas</h3>
             <h1>teste teste</h1>
 
           </div>
 
-          <div class="cardKpi">
+          <div class="cardKpi" id="cardKpi_CorredorMaisMovimentado">
 
-            <h3>Corredor mais movimentado (24h)</h3>
+            <h3 id="h3_CorredorMaisMovimentado">Corredor mais movimentado nas últimas 24 horas</h3>
             <h1>teste teste</h1>
 
           </div>
 
-          <div class="cardKpi">
+          <div class="cardKpi" id="cardKpi_horarioPicoCorredor">
 
-            <h3>Horário de pico dos corredores</h3>
+            <h3 id="h3_horarioPicoCorredor">Horário de pico dos corredores nas últimas 24 horas</h3>
             <h1>teste teste</h1>
 
           </div>
         </div>
 
-        <div class="kpisDiv">
+        <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1>
+        <div class="kpisDiv" id="cardKpi_FilasCaixas">
+          
           <div class="cardKpi">
 
             <h3>Caixas com fila cheia agora</h3>
@@ -67,17 +71,11 @@
 
           <div class="cardKpi">
 
-            <h3>Tempo total em fila cheia (24h)</h3>
+            <h3 id="h3_tempoTotalFilaCheia">Tempo total em fila cheia nas últimas 24 horas</h3>
             <h1>teste teste</h1>
 
           </div>
 
-          <div class="cardKpi">
-
-            <h3>Impacto financeiro estimado agora</h3>
-            <h1>teste teste</h1>
-
-          </div>
         </div>
       </section>
 
@@ -449,16 +447,24 @@
           "Ativações de presença " +
           periodoComPreposicao +
           " - soma dos dois sensores de acesso de cada corredor.";
+
         descricaoCorredorPico.textContent =
           "Ativações por hora " +
           periodoComPreposicao +
           ". Escolha o corredor para atualizar.";
+
         descricaoCaixaTempo.textContent =
           'Minutos acumulados no estado "cheio" ' + periodoComPreposicao + ".";
+
         descricaoCaixaOcupacao.textContent =
           "Estado da fila por hora - vazio, moderado ou cheio, " +
           periodoComPreposicao +
           ". Escolha o caixa para atualizar.";
+
+        h3_CorredorAcionamento.textContent = "Acionamentos total nos corredores " + periodoComPreposicao
+        h3_CorredorMaisMovimentado.textContent = "Corredor mais movimentado " + periodoComPreposicao
+        h3_horarioPicoCorredor.textContent = "Horário de pico dos corredores " + periodoComPreposicao
+        h3_tempoTotalFilaCheia.textContent = "Tempo total em fila cheia " + periodoComPreposicao
 
         graficoBarraCorredor.data.datasets[0].data = corredoresRanking.map(
           function (corredor) {
