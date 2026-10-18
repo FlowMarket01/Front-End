@@ -18,6 +18,7 @@
     </header>
 
     <main class="mainDash">
+      
       <h1 id="tituloPeriodo">Fluxo e filas - últimas 24 horas</h1>
       <p>
         Mercado Caramico - leituras dos sensores ultrassônicos de corredor e das
@@ -31,6 +32,52 @@
           <option value="7">7 dias</option>
         </select>
       </div>
+
+      <section class="sectionKpis">
+        <h1 class="titulo_kpiDiv">CORREDORES</h1>
+        <div class="kpisDiv">
+          
+          <div class="cardKpi" id="cardKpi_CorredorAcionamento">
+
+            <h3 id="h3_CorredorAcionamento">Acionamentos total nos corredores nas últimas 24 horas</h3>
+            <h1 id="h1_acionamentoTotal">teste teste</h1>
+
+          </div>
+
+          <div class="cardKpi" id="cardKpi_CorredorMaisMovimentado">
+
+            <h3 id="h3_CorredorMaisMovimentado">Corredor mais movimentado nas últimas 24 horas</h3>
+            <h1>teste teste</h1>
+
+          </div>
+
+          <div class="cardKpi" id="cardKpi_horarioPicoCorredor">
+
+            <h3 id="h3_horarioPicoCorredor">Horário de pico dos corredores nas últimas 24 horas</h3>
+            <h1>teste teste</h1>
+
+          </div>
+        </div>
+
+        <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1>
+        <div class="kpisDiv" id="cardKpi_FilasCaixas">
+          
+          <div class="cardKpi">
+
+            <h3>Caixas com fila cheia agora</h3>
+            <h1>teste teste</h1>
+
+          </div>
+
+          <div class="cardKpi">
+
+            <h3 id="h3_tempoTotalFilaCheia">Tempo total em fila cheia nas últimas 24 horas</h3>
+            <h1>teste teste</h1>
+
+          </div>
+
+        </div>
+      </section>
 
       <section id="sectionGraficoCorredor" class="sectionDash">
         <div id="cardCorredorMaiorFluxo" class="divCard">
@@ -387,6 +434,18 @@
         graficoLinhaCaixa.update();
       });
 
+      function acionamentoTotalCorredores(corredoresRanking, dia = 1){
+        let maior = corredoresRanking[0].pontuacao
+        for(let i = 0; i < corredoresRanking.length; i++ ){
+          if(maior < corredoresRanking[i].pontuacao){
+            maior = corredoresRanking[i].pontuacao 
+          }
+        }
+
+        
+        h1_acionamentoTotal.textContent = `${maior * dia}`
+      }
+
       function atualizarPeriodo() {
         let dias = Number(sltPeriodo.value);
         let textoPeriodo =
@@ -400,16 +459,24 @@
           "Ativações de presença " +
           periodoComPreposicao +
           " - soma dos dois sensores de acesso de cada corredor.";
+
         descricaoCorredorPico.textContent =
           "Ativações por hora " +
           periodoComPreposicao +
           ". Escolha o corredor para atualizar.";
+
         descricaoCaixaTempo.textContent =
           'Minutos acumulados no estado "cheio" ' + periodoComPreposicao + ".";
+
         descricaoCaixaOcupacao.textContent =
           "Estado da fila por hora - vazio, moderado ou cheio, " +
           periodoComPreposicao +
           ". Escolha o caixa para atualizar.";
+
+        h3_CorredorAcionamento.textContent = "Acionamentos total nos corredores " + periodoComPreposicao
+        h3_CorredorMaisMovimentado.textContent = "Corredor mais movimentado " + periodoComPreposicao
+        h3_horarioPicoCorredor.textContent = "Horário de pico dos corredores " + periodoComPreposicao
+        h3_tempoTotalFilaCheia.textContent = "Tempo total em fila cheia " + periodoComPreposicao
 
         graficoBarraCorredor.data.datasets[0].data = corredoresRanking.map(
           function (corredor) {
@@ -438,9 +505,11 @@
         graficoBarraCaixa.update();
         graficoLinhaCorredor.update();
         graficoLinhaCaixa.update();
+        acionamentoTotalCorredores(corredoresRanking, dias)
       }
 
       sltPeriodo.addEventListener("change", atualizarPeriodo);
+      sltPeriodo.addEventListener("change", acionamentoTotalCorredores(corredoresRanking));
     </script>
   </body>
 </html>
