@@ -1,0 +1,291 @@
+
+/* Remove as margens e os espaços padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo verde de toda a página */
+.fundo {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(4, 73, 57);
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Área que organiza o cabeçalho e os painéis */
+.ajustes {
+    padding: 30px 20px;
+}
+
+/* Título que aparece acima dos gráficos */
+.cabecalho {
+    padding: 10px 30px 20px;
+    color: white;
+}
+
+.nomePagina {
+    font-size: 10px;
+    margin-bottom: 10px;
+    color: rgb(170, 211, 116);
+}
+
+.cabecalho h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    max-width: 500px;
+}
+
+/* Caixa branca que reúne os dois painéis */
+.conteinerPrincipal {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 30px;
+
+    background-color: white;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Os dois painéis têm o mesmo espaço disponível */
+.conteiner-grafico1,
+.conteiner-grafico2 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 18px;
+
+    border: 1px solid rgb(210, 215, 212);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Títulos dos gráficos */
+.cabecalhoGrafico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.cabecalhoGrafico h2 {
+    font-size: 14px;
+    color: rgb(4, 73, 57);
+}
+
+/* Botões Hoje e 7 dias */
+.opcoes-periododedias {
+    display: flex;
+    gap: 5px;
+}
+
+.opcoes-periododedias button {
+    background-color: rgb(226, 236, 228);
+    color: rgb(4, 73, 57);
+    border: none;
+    border-radius: 4px;
+    padding: 7px 12px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+/* Destaca o botão Hoje */
+.opcoes-periododedias button:first-child {
+    background-color: rgb(4, 73, 57);
+    color: white;
+}
+
+/* Nome da área, barra e número ficam na mesma linha */
+.linhaGrafico {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.linhaGrafico span {
+    width: 85px;
+    flex-shrink: 0;
+    font-size: 10px;
+    color: rgb(75, 75, 75);
+}
+
+.linhaGrafico small {
+    width: 35px;
+    flex-shrink: 0;
+    text-align: right;
+    font-size: 10px;
+    color: rgb(65, 65, 65);
+}
+
+/* Fundo cinza claro atrás das barras */
+.barraFundo {
+    flex: 1;
+    min-width: 0;
+    height: 14px;
+    background-color: rgb(229, 236, 232);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Barras verdes de cada área */
+.grafico1verdeclaro {
+    background-color: rgb(108, 174, 75);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.grafico2verdeclaro {
+    background-color: rgb(108, 174, 75);
+    width: 75%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.grafico3verdeclaro {
+    background-color: rgb(108, 174, 75);
+    width: 58%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.grafico4verdeclaro {
+    background-color: rgb(108, 174, 75);
+    width: 40%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.grafico5verdeclaro {
+    background-color: rgb(108, 174, 75);
+    width: 28%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Barra escura que representa os caixas */
+.grafico1verdeescuro {
+    background-color: rgb(4, 73, 57);
+    width: 78%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Legenda das cores abaixo do primeiro gráfico */
+.legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.legenda span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.legenda i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 1px;
+}
+
+.corVerde {
+    background-color: rgb(108, 174, 75);
+}
+
+.corMedia {
+    background-color: rgb(229, 236, 232);
+}
+
+.corEscura {
+    background-color: rgb(4, 73, 57);
+}
+
+/* Cartões individuais dos caixas */
+.cartaoCaixa {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 7px;
+    padding: 12px;
+}
+
+/* Nome do caixa e última atualização */
+.textoCaixa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 10px;
+    color: rgb(4, 73, 57);
+}
+
+.textoCaixa small {
+    color: rgb(100, 100, 100);
+    font-size: 8px;
+}
+
+/* Números abaixo das barras */
+.numeroCaixa {
+    align-self: flex-end;
+    font-size: 9px;
+    color: rgb(80, 80, 80);
+}
+
+/* Barra verde do Caixa 1 */
+.grafico1laranja {
+    background-color: rgb(108, 174, 75);
+    width: 75%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Barra laranja para indicar atenção no Caixa 2 */
+.grafico2laranja {
+    background-color: rgb(255, 153, 31);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Barra vazia do Caixa 3 */
+.grafico3laranja {
+    background-color: rgb(229, 236, 232);
+    width: 0%;
+    height: 100%;
+}
+
+/* Caixa que precisa de atenção */
+.avisoCaixa {
+    background-color: rgb(255, 243, 211);
+    border-color: rgb(235, 210, 155);
+}
+
+/* Aviso e recomendação */
+.textoCritico {
+    font-size: 10px;
+    color: rgb(100, 75, 30);
+}
+
+.recomendacao {
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 5px;
+    color: rgb(90, 90, 90);
+    font-size: 9px;
+}
