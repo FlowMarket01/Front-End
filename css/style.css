@@ -5,3 +5,358 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.divisao_secaoHero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+    justify-content: space-around;
+}
+
+
+.texto_esquerdo_secaoHero {
+
+    padding: 20px;
+    max-width: 1100px;
+    align-items: flex-start;
+}
+
+.botao_agendar_secaoHero {
+    gap: 20px;
+    background-color: #0F4C3A;
+    border-color: #ffff;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.botao_comoFunciona_secaoHero {
+    gap: 20px;
+    background-color: #ffff;
+    border-color: #6aae48;
+    border-radius: 10px;
+    padding: 20px;
+    color: #0F4C3A;
+    font-weight: bold;
+    margin: 15px;
+
+}
+
+
+.titulo_secaoHero {
+    color: #0F4C3A;
+    font-weight: bold;
+    font-size: 45px;
+    margin-top: 20px;
+    max-width: 570px;
+    margin: 20px;
+    line-height: 65px;
+
+}
+
+.paragrafo_secaoHero {
+    max-width: 600px;
+    margin: 20px;
+    line-height: 30px;
+}
+
+.salsicha {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    width: fit-content;
+    border: solid 2px #E5E7EB;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+    color: #0F4C3A;
+    background-color: #FFFFFF;
+
+    font-size: 13px;
+
+}
+
+
+
+.cartao_secaoHero {
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+    height: auto;
+    background-color: white;
+    min-height: 0;
+    border: #6aae48 solid 2px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.sub_lojaCentral_secaoHero {
+    display: flex;
+    font-weight: bold;
+    font-size: 14px;
+    color: #0F4C3A;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #6aae48;
+
+}
+
+.espaco_card_secaoHero {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 20px;
+    width: 100%;
+
+}
+
+.mini_cards_cinzas_secaoHero {
+    display: grid;
+    border: #E5E7EB solid 1px;
+    border-radius: 12px;
+    background-color: #E4ECE7;
+    padding: 12px;
+
+
+}
+
+.mini_tit_dosCards_secaoHero {
+    color: #0F4C3A;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.mini_sub_tit_dosCards_secaoHero {
+    color: #A9C29C;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.mini_legenda_secaoHero {
+    color: #6aae48;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.cartao_subtexto_legenda_secaoHero {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 8px;
+    margin-left: 8px;
+    justify-content: space-between;
+
+}
+
+.cartao_subtitulo_secaoHero {
+    display: flex;
+    font-weight: bold;
+    color: #0F4C3A;
+    font-size: 13px;
+    justify-content: flex-end;
+}
+
+.cartao_legendaGrafico_secao_hero {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.mini_qdd_verde_secaoHero {
+    display: flex;
+    width: 10px;
+    min-width: 0px;
+    height: 10px;
+    border: #6aae48 solid 1px;
+    border-radius: 2px;
+    background-color: #6aae48;  
+}
+
+.mini_qdd_media_secaoHero {
+    display: flex;
+    width: 10px;
+    flex-shrink: 0px;
+    height: 10px;
+    border: #E4ECE7 solid 1px;
+    border-radius: 2px;
+    background-color: #E4ECE7;
+}
+
+
+.barras_legenda_secaoHero {
+    color: #909090;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+}
+
+.barra_num_secaoHero {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+}
+
+.barra_unidade_secaoHero {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) 50px;
+    align-items: center;
+    margin: 8px;
+}
+
+.entrada_barra_secaoHero {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 20px;
+    border: #6aae48 solid 1px;
+    background-color: #6aae48;
+    border-radius: 5px;
+
+}
+
+.corredor1_secaoHero {
+    display: flex;
+    justify-content: flex-start;
+    width: 95%;
+    height: 20px;
+    border: #6aae48 solid 1px;
+    background-color: #6aae48;
+    border-radius: 5px;
+}
+
+.corredor1_media_secaoHero {
+    display: flex;
+    justify-content: flex-start;
+    width: 87%;
+    height: 20px;
+    border: #E4ECE7 solid 1px;
+    background-color: #E4ECE7;
+    border-radius: 5px;
+}
+
+.corredor2_secaoHero {
+    display: flex;
+    justify-content: flex-start;
+    width: 65%;
+    height: 20px;
+    border: #6aae48 solid 1px;
+    background-color: #6aae48;
+    border-radius: 5px;
+}
+
+.corredor3_secaoHero {
+    display: flex;
+    justify-content: flex-start;
+    width: 77%;
+    height: 20px;
+    border: #6aae48 solid 1px;
+    background-color: #6aae48;
+    border-radius: 5px;
+}
+
+.corredor3_secaoHero_media {
+    display: flex;
+    justify-content: flex-start;
+    width: 65%;
+    height: 20px;
+    border: #E4ECE7 solid 1px;
+    background-color: #E4ECE7;
+    border-radius: 5px;
+}
+
+.caixa_secaoHero {
+    display: flex;
+    justify-content: flex-start;
+    width: 75%;
+    height: 20px;
+    border: #6aae48 solid 1px;
+    background-color: #6aae48;
+    border-radius: 5px;
+}
+
+
+.aviso_secaoHero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #F7FFAD;
+    border-radius: 10px;
+
+}
+
+.aviso_icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    color: #FFFFFF;
+    background-color: #FFB800;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    font-size: 0;
+}
+
+.aviso_icone::after {
+    content: "!";
+    font-size: 22px;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 8px;
+}
+
+.aviso_conteudo_secaoHero {
+    flex: 1;
+    min-width: 0;
+}
+
+.aviso_titulo_secaoHero {
+    color: #111111;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.aviso_paragrafo_secaoHero {
+    color: #222222;
+    font-size: 11px;
+    line-height: 1.45;
+    margin: 0;
+    max-width: 300px;
+}
+
+.fundo_secaoHero {
+    min-height: 330px;
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.65),
+            rgba(255, 255, 255, 0.65)
+        ),
+        url("https://statics.otvfoco.com.br/2026/02/1-29.webp") center / cover no-repeat;       
+}
+
+
+@media (max-width: 768px){
+    .divisao_secaoHero{flex-direction: column; padding: 10px;}
+    .titulo_secaoHero{font-size: 30px; line-height: 40px;}
+    .cartao_secaoHero{padding: 10px; }
+    .mini_tit_dosCards_secaoHero{font-size: 14px;}
+    .espaco_card_secaoHero{grid-template-columns: 1fr 1fr;}
+    .botao_agendar_secaoHero{padding: 10px; margin: 5px;}
+    .botao_comoFunciona_secaoHero{padding: 10px; margin: 5px;}
+}
