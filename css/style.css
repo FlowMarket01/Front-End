@@ -360,3 +360,97 @@
     .botao_agendar_secaoHero{padding: 10px; margin: 5px;}
     .botao_comoFunciona_secaoHero{padding: 10px; margin: 5px;}
 }
+
+
+
+
+
+
+.cego_secaoProblema {
+    color: #6aae48;
+}
+
+.paragrafo_secaoProblema {
+    flex: 1;
+    color: #3D6E5F;
+    font-size: 18px;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.divisao_secaoProblema {
+    display: flex;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 40px;
+
+}
+
+.risco_secaoProblema {
+    border-left: solid 1px #6aae48;
+    min-height: 90px;
+    padding: 10px;
+}
+
+.fonte_secaoProblema {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6F6F6F;
+    max-width: 300px;
+    align-items: center;
+    text-align: left;
+}
+
+
+
+.titulo_eSubs_secaoProblema {
+    color: #0F4C3A;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+.blocos_secaoProblema {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 20px;
+}
+
+
+.sub-tituloBlocos_secaoProblema {
+    color: #6dae4b;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+
+}
+
+.card_individual_secaoProblema {
+    width: 100%;
+    max-width: 350px;
+        min-width: 0;
+
+    height: fit-content;
+    background-color: white;
+    box-shadow: 0 10px 25px -5px rgba(46, 40, 40, 0.2), 
+              0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 40px;
+}
+
+
+@media(max-width: 768px){
+    .divisao_secaoProblema{flex-direction: column; align-items: stretch; padding: 24px;}
+    .blocos_secaoProblema{grid-template-columns: 1fr; gap: 15px}
+    .paragrafo_secaoProblema{font-size: 16px; }
+    .titulo_eSubs_secaoProblema{font-size: 30px;}
+    .fonte_secaoProblema{font-size: 13px;}
+    .card_individual_secaoProblema{padding: 20px;}
+
+}
+
