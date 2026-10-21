@@ -26,7 +26,9 @@
 
         <div class="campo">
             <label for="ipt_nome">Nome Completo</label>
-            <input type="text" id="ipt_nome" class="form-input" placeholder="Ex: João da Silva" required>
+            <input type="text" id="ipt_nome" class="form-input" placeholder="Ex: João da Silva" oninput="validarNome()"
+                required>
+            <p id="msg_nome" class="msg-validacao"></p>
         </div>
 
         <div class="campo">
@@ -36,13 +38,16 @@
 
         <div class="campo">
             <label for="ipt_senha">Senha</label>
-            <input type="password" id="ipt_senha" class="form-input" placeholder="Mínimo de 8 caracteres" required>
-            <p></p>
+            <input type="password" id="ipt_senha" class="form-input" placeholder="Mínimo de 8 caracteres"
+                oninput="validarSenha(); confirmarSenha()" required>
+            <p id="msg_senha" class="msg-validacao"></p>
         </div>
 
         <div class="campo">
             <label for="ipt_conf_senha">Confirmar senha</label>
-            <input type="password" id="ipt_conf_senha" class="form-input" placeholder="Repita sua senha" required>
+            <input type="password" id="ipt_conf_senha" class="form-input" placeholder="Repita sua senha"
+                oninput="confirmarSenha()" required>
+            <p id="msg_conf_senha" class="msg-validacao"></p>
         </div>
 
         <div class="campo">
@@ -57,7 +62,8 @@
 
         <div class="campo">
             <label for="ipt_cnpj">CNPJ</label>
-            <input type="text" id="ipt_cnpj" class="form-input" placeholder="00.000.000/0000-00" required>
+            <input type="text" id="ipt_cnpj" class="form-input" placeholder="00.000.000/0000-00" oninput="validarCnpj()" required>
+            <p id="msg_cnpj" class="msg-validacao"></p>
         </div>
 
         <div class="campo">
@@ -107,4 +113,76 @@
     </div>
 
 </body>
+
 </html>
+
+<script>
+    function validarNome() {
+        let partes_nome = ipt_nome.value.trim().split(' ');
+
+        if (ipt_nome.value.trim() == '') {
+            msg_nome.innerHTML = ''
+        } else {
+            if (partes_nome.length < 2) {
+                msg_nome.innerHTML = `Digite seu nome e sobrenome`;
+                msg_nome.className = 'msg-validacao';
+            } else {
+                msg_nome.innerHTML = `Nome válido!`;
+                msg_nome.className = 'msg-valida';
+            }
+        }
+    }
+
+    function validarSenha() {
+        let senha = ipt_senha.value;
+
+        if (senha.length >= 8 && /[A-Z]/.test(senha) && /[^A-Za-z0-9]/.test(senha)) {
+            msg_senha.innerHTML = `Senha válida!`;
+            msg_senha.className = "msg-valida";
+        } else {
+            msg_senha.innerHTML = `A senha deve conter no mínimo 8 caracteres, uma letra maiúscula e um caractere especial.`;
+            msg_senha.className = 'msg-validacao';
+        }
+    }
+
+    function confirmarSenha() {
+        let senha = ipt_senha.value;
+        let conf_senha = ipt_conf_senha.value;
+
+        if (conf_senha == '') {
+            msg_conf_senha.innerHTML = '';
+        } else {
+            if (senha === conf_senha) {
+                msg_conf_senha.innerHTML = `Senhas iguais!`;
+                msg_conf_senha.className = `msg-valida`;
+            } else {
+                msg_conf_senha.innerHTML = `As senhas não coincidem`;
+                msg_conf_senha.className = `msg-validacao`;
+            }
+        }
+    }
+
+    function validarCnpj() {
+        let cnpj = ipt_cnpj.value;
+        cnpj = cnpj.replace(/\D/g, '');
+        cnpj = cnpj.substring(0, 14);
+
+        let parte1 = cnpj.substring(0, 2);
+        let parte2 = cnpj.substring(2, 5)
+        let parte3 = cnpj.substring(5, 8);
+        let parte4 = cnpj.substring(8, 12);
+        let parte5 = cnpj.substring(12, 14);
+
+        if (cnpj.length <= 2) {
+            ipt_cnpj.value = cnpj;
+        } else if (cnpj.length <= 5) {
+            ipt_cnpj.value = parte1 + '.' + parte2;
+        } else if (cnpj.length <= 8) {
+            ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3;
+        } else if (cnpj.length <= 12) {
+            ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3 + '/' + parte4;
+        } else if (cnpj.length <= 14) {
+            ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3 + '/' + parte4 + '-' + parte5;
+        }
+    }
+</script>
