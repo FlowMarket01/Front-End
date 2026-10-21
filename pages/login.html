@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar no painel | Flow Market</title>
+
+    <!-- Fonte externa: Poppins. Precisa de internet para carregar do Google Fonts. -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style-login.css">
+</head>
+
+<body>
+    <!--
+        DESCOBERTA: a página é formada por caixas dentro de caixas.
+        Section agrupa partes relacionadas da página. Aqui, .imagens contém a logo.
+    -->
+    <section class="imagens">
+        <img src="../img/carrinho.png" alt="Carrinho de compras" class="logoCarrinho">
+        <img src="../img/Flowmarket.png" alt="Flow Market" class="logoNome">
+    </section>
+
+    <!-- Fundo que ocupa a área principal da tela -->
+    <section class="backDosGraunds">
+        <form action="">
+            <!-- Cartão branco que contém todo o formulário -->
+            <section class="containerPrincipal">
+                <section class="formatacao">
+                    <section class="textoFormulario">
+                        <section class="titulo">
+                            <h3>Entrar no Painel</h3>
+                        </section>
+
+                        <p class="descricao">Use o e-mail e a senha cadastrados na sua conta.</p>
+
+                        <!-- label identifica o campo; o for deve combinar com o id do input -->
+                        <label for="ipt_email">E-mail corporativo</label>
+                        <input type="email" id="ipt_email" placeholder="fernanda@lojacorporativa.com">
+
+                        <section class="linhaSenha">
+                            <label for="ipt_password">Senha</label>
+                            <a href="#" class="esqueciSenha">Esqueci a senha</a>
+                        </section>
+                        <section class="campoSenha">
+                            <input type="password" id="ipt_password" placeholder="Mínimo de 6 caracteres">
+                            <!-- Ícone ilustrativo em texto; não revela/esconde a senha ainda. -->
+                            <span class="iconeOlho" aria-hidden="true">◉</span>
+                        </section>
+                    </section>
+
+                    <!--
+                        DESCOBERTA: Flexbox organiza os elementos filhos.
+                        O botão fica abaixo dos campos porque .formatacao usa flex-direction: column.
+                    -->
+                    <button type="submit" class="containerSecundarioVerde">Entrar</button>
+                </section>
+            </section>
+        </form>
+
+        <!-- Fica abaixo do cartão, como na referência -->
+        <p class="cadastro">Ainda não tem uma conta? <a href="#">Cadastre sua loja</a></p>
+    </section>
+</body>
+</html>
