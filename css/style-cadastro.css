@@ -93,6 +93,17 @@ body {
     color: #0F4C3A;
 }
 
+.msg-validacao {
+    font-size: 14px;
+    color: #828181;
+    margin-top: 2px;
+}
+
+.msg-valida {
+    font-size: 14px;
+    color: #278044;
+}
+
 .opcoes-porte {
     display: flex;
     align-items: center;
