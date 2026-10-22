@@ -31,7 +31,7 @@
 
             </section>
             <section class="cartao_secaoHero">
-                <div class="sub_lojaCentral_secaoHero"><img src="img/icone_mercadoVerde.png"> Loja Central - Supermercado
+                <div class="sub_lojaCentral_secaoHero"><img src="icone_mercadoVerde.png"> Loja Central - Supermercado
                     <br>Modelo</div>
                 <section class="espaco_card_secaoHero">
                     <section class="mini_cards_cinzas_secaoHero">
@@ -362,7 +362,57 @@
         </div>
     </div>
 
+<section class="calculadora_panel">
+        <div class="calculadora">
+            <span class="medium green center" style="font-size: 13px;"> <img src="img/Rectangle.png" alt="cristal"> PRODUTO </span>
+            <h1 class="title"> Quanto o fluxo invisível <br> custa para você? </h1>
+            <h3 class="medium"> Ajuste a sua realidade nos controles, a estimativa atualiza ao vivo. <br> Os valores
+                iniciais seguem as
+                medianas que vemos em <br> supermercados de médio porte. </h3><br><br>
 
+            <div class="input">
+                Porte do mercado <br>
+                <select name="" id="ipt_escala" onchange="calcular()">
+                    <option selected="selected" value="pequeno">Pequeno</option>
+                    <option value="medio">Médio</option>
+                    <option value="grande">Grande</option>
+                </select> <br>
+                <span class="subtitle">Ticket médio de referência: R$ <span id="valor_ticket"></span></span><br><br>
+                <br>
+            </div>
+
+            <div class="input">Quantidade de caixas em estado crítico<br><input type="number" id="ipt_caixas"
+                    placeholder="2" oninput="calcular()"><br>
+                <span class="subtitle">Considera-se em estado crítico o caixa cuja fila tem entre 10 e 15 pessoas</span>
+            </div> <br><br>
+
+        </div>
+
+        <div class="mostra">
+            <span class="semibold">RESULTADO DA SIMULAÇÃO</span><br><br>
+            <span class="medium medium_size" style="color: #0F4C3A;">Impacto financeiro total estimado</span> <br>
+            <span class="semibold green" style="font-size: 64px;">
+                R$ <span id="total">0.00</span>
+            </span>
+
+            <div class="linha"></div><br>
+
+            <span class="semibold">Impacto estimado por caixa crítico<br><br>
+                <span class="lime" style="font-size: 28px;">R$ <span id="total_por_caixa">0.00</span></span>
+            </span><br><br>
+            <div class="aviso">
+                <div class="linha_verde"></div>
+                <span style="font-size: 14px;">
+                    Estimativa de potencial impacto financeiro - não representa <br>
+                    uma perda financeira efetivamente garantida
+                </span>
+            </div> <br><br>
+
+
+            <button class="btn_calculadora" onclick="saiba_mais()">Falar com vendas<img src="img/Right_Arrow.png"
+                    style="margin-left: 15px;" alt="flecha"></button><br><br>
+        </div>
+    </section>
 
     <div class="corpo-principal">
         <div class="container">
@@ -604,5 +654,46 @@
          <span class="footer_direitos"> © 2026 FlowMarket Systems, Inc. Todos os direitos reservados. </span>
     </footer>
 </body>
+<script>
+    function calcular() {
+        let escala = ipt_escala.value;
+        let caixas = Number(ipt_caixas.value);
+        let ticket = 0;
+        let clientes = 0;
 
+        if (caixas <= 0){
+            caixas = 0
+        }
+
+        if (escala == 'pequeno') {
+            ticket = 57.90
+            clientes = 5
+        } else if (escala == 'medio') {
+            ticket = 69.10
+            clientes = 7
+        } else if (escala == 'grande'){
+            ticket = 80.30
+            clientes = 10
+        }
+
+        valor_ticket.innerHTML = ticket;
+
+        let renda_total = Number(ticket * caixas * clientes).toFixed(2);
+        let perda_caixa = Number(renda_total * 0.1).toFixed(2);
+        let total_caixa = perda_caixa / caixas;
+
+        total.innerHTML = perda_caixa
+
+        if (isNaN(total_caixa) || caixas <= 0) {
+            total_por_caixa.innerHTML = 0.00
+        }
+        else {
+            total_por_caixa.innerHTML = (total_caixa).toFixed(2)
+        }
+    }
+
+    function saiba_mais() {
+        alert("Link para outra página")
+    }
+</script>
 </html>
