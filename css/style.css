@@ -7,6 +7,90 @@
     font-family: "Poppins", sans-serif;
 }
 
+.cabecaLhoDash {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 20px 50px;
+}
+
+.cabecaLhoDash h1 {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: #0F4C3A;
+    font-size: 30px;
+}
+
+.cabecaLhoDash h1 span {
+    color: #6AAE48;
+}
+
+.cabecaLhoDash .molduraLogo {
+    height: 50px;
+    width: 40px;
+}
+
+.cabecaLhoDash .molduraLogo img {
+    height: 100%;
+    width: 100%;
+}
+
+.navegacaoPrincipal,
+.acoesCabecalho {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navegacaoPrincipal a {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.navegacaoPrincipal a:hover {
+    color: #6AAE48;
+    font-weight: bold;
+}
+
+.acoesCabecalho a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 2px solid #0F4C3A;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.botaoEntrar {
+    color: #0F4C3A;
+    background-color: #FFFFFF;
+}
+
+.botaoEntrar:hover {
+    border-color: #6AAE48;
+}
+
+.botaoCadastrar {
+    color: #FFFFFF;
+    background-color: #0F4C3A;
+    cursor: pointer;
+}
+
+.botaoCadastrar:hover {
+    background-color: #0b3d2f;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .divisao_secaoHero {
     display: flex;
     align-items: center;
@@ -1399,5 +1483,31 @@ h2 {
 
     .linhaGrafico span {
         flex-basis: 85px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .cabecaLhoDash {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px 28px;
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 700px) {
+    .cabecaLhoDash {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .navegacaoPrincipal {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .acoesCabecalho {
+        gap: 12px;
     }
 }

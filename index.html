@@ -6,11 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>FlowMarket</title>
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <section class="fundo_secaoHero">
+    <header class="cabecaLhoDash">
+        <h1>
+            <div class="molduraLogo">
+                <img src="./img/iconCart.png" alt="FlowMarket" />
+            </div>
+            Flow<span>Market</span>
+        </h1>
+        <nav class="navegacaoPrincipal" aria-label="Navegação principal">
+            <a href="#hero">Início</a>
+            <a href="#problema">Problema</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#solucao">Solução</a>
+        </nav>
+        <div class="acoesCabecalho">
+            <a class="botaoEntrar" href="./pages/login.html">Entrar</a>
+            <a class="botaoCadastrar" href="./pages/cadastro.html">Cadastrar</a>
+        </div>
+    </header>
+    <section class="fundo_secaoHero" id="hero">
         <section class="divisao_secaoHero">
             <section class="texto_esquerdo_secaoHero">
                 <h1 class="titulo_secaoHero">Entenda o fluxo dos seus clientes e acabe com as filas nos caixas em tempo
@@ -31,7 +48,7 @@
 
             </section>
             <section class="cartao_secaoHero">
-                <div class="sub_lojaCentral_secaoHero"><img src="icone_mercadoVerde.png"> Loja Central - Supermercado
+                <div class="sub_lojaCentral_secaoHero"><img src="./img/icone_mercadoVerde.png"> Loja Central - Supermercado
                     <br>Modelo
                 </div>
                 <section class="espaco_card_secaoHero">
@@ -125,7 +142,7 @@
 
 
     <!--PROBLEMA-->
-    <section class="divisao_secaoProblema">
+    <section class="divisao_secaoProblema" id="problema">
         <section>
             <span class="cego_secaoProblema">◆</span><span class="paragrafo_secaoProblema"> O PONTO CEGO</span>
 
@@ -202,7 +219,7 @@
 
 
 
-    <div class="body-f">
+    <div class="body-f" id="como-funciona">
 
         <div class="container">
 
@@ -363,7 +380,7 @@
         </div>
     </div>
 
-    <section class="fundo">
+    <section class="fundo" id="solucao">
 
         <!-- Cabeçalho da página -->
         <div class="ajustes">
