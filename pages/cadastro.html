@@ -15,7 +15,7 @@
         <h1 class="title">Flow<span style="color: #6AAE48">market</span></h1>
     </div>
 
-    <form action="/cadastrar-usuario" class="cad-container">
+    <form action="/cadastrar-usuario" onsubmit="cadastrarUsuario(event)" class="cad-container">
 
         <div class="form-header">
             <h1 class="title">Criar Conta</h1>
@@ -33,13 +33,17 @@
 
         <div class="campo">
             <label for="ipt_email">E-mail Corporativo</label>
-            <input type="email" id="ipt_email" class="form-input" placeholder="Ex: nome@empresa.com.br" required>
+            <input type="email" id="ipt_email" class="form-input" placeholder="Ex: nome@empresa.com.br" oninput="validarEmail()" required>
+            <p id="msg_email" class="msg-validacao"></p>
         </div>
 
         <div class="campo">
             <label for="ipt_senha">Senha</label>
-            <input type="password" id="ipt_senha" class="form-input" placeholder="Mínimo de 8 caracteres"
+            <div class="campo-senha"><input type="password" id="ipt_senha" class="form-input" placeholder="Mínimo de 8 caracteres"
                 oninput="validarSenha(); confirmarSenha()" required>
+            <button type="button" id="visualizar_senha" onclick="visualizarSenha()">👁</button>
+            </div>
+            
             <p id="msg_senha" class="msg-validacao"></p>
         </div>
 
@@ -62,7 +66,8 @@
 
         <div class="campo">
             <label for="ipt_cnpj">CNPJ</label>
-            <input type="text" id="ipt_cnpj" class="form-input" placeholder="00.000.000/0000-00" oninput="validarCnpj()" required>
+            <input type="text" id="ipt_cnpj" class="form-input" placeholder="00.000.000/0000-00" oninput="validarCnpj()"
+                required>
             <p id="msg_cnpj" class="msg-validacao"></p>
         </div>
 
@@ -72,17 +77,17 @@
             <div class="opcoes-porte">
 
                 <label for="porte_grande">
-                    <input type="radio" id="porte_grande" value="grande" required>
+                    <input type="radio" id="porte_grande" value="grande" name="porte">
                     Grande Porte
                 </label>
 
                 <label for="porte_medio">
-                    <input type="radio" id="porte_medio" value="medio">
+                    <input type="radio" id="porte_medio" value="medio" name="porte">
                     Médio Porte
                 </label>
 
                 <label for="porte_pequeno">
-                    <input type="radio" id="porte_pequeno" value="pequeno">
+                    <input type="radio" id="porte_pequeno" value="pequeno" name="porte">
                     Pequeno Porte
                 </label>
 
@@ -91,7 +96,8 @@
 
         <div class="campo">
             <label for="ipt_telefone">Telefone:</label>
-            <input type="tel" id="ipt_telefone" class="form-input" placeholder="(11) 99999-9999" required>
+            <input type="tel" id="ipt_telefone" class="form-input" placeholder="(11) 99999-9999"
+                oninput="validarTelefone()">
         </div>
 
         <div>
@@ -112,77 +118,174 @@
         <p>Já tem uma conta? <a href="#">Entrar</a></p>
     </div>
 
+    <script>
+        function validarNome() {
+            let partes_nome = ipt_nome.value.trim().split(' ');
+    
+            if (ipt_nome.value.trim() == '') {
+                msg_nome.innerHTML = ''
+            } else {
+                if (partes_nome.length < 2) {
+                    msg_nome.innerHTML = `Digite seu nome e sobrenome`;
+                    msg_nome.className = 'msg-validacao';
+                } else {
+                    msg_nome.innerHTML = `Nome válido!`;
+                    msg_nome.className = 'msg-valida';
+                }
+            }
+        }
+    
+        function validarEmail() {
+            let email = ipt_email.value;
+            if (ipt_email.value == '') {
+                msg_email.innerHTML = '';
+            } else {
+                if (email.includes('@') && 
+                    email.indexOf('@') == email.lastIndexOf('@') &&
+                    email.lastIndexOf('@') != email.length - 1 &&
+                    !email.startsWith('@')
+                ) {
+                    msg_email.innerHTML = `Email válido!`;
+                    msg_email.className = 'msg-valida';
+                } else {
+                    msg_email.innerHTML = `O email deve possuir '@'`;
+                    msg_email.className = 'msg-validacao'
+                    
+                }
+            }
+        }
+    
+        function validarSenha() {
+            let senha = ipt_senha.value;
+    
+            if (senha.length >= 8 && /[A-Z]/.test(senha) && /[^A-Za-z0-9]/.test(senha)) {
+                msg_senha.innerHTML = `Senha válida!`;
+                msg_senha.className = "msg-valida";
+            } else {
+                msg_senha.innerHTML = `A senha deve conter no mínimo 8 caracteres, uma letra maiúscula e um caractere especial.`;
+                msg_senha.className = 'msg-validacao';
+            }
+        }
+
+        function visualizarSenha() {
+            let tipo_senha = ipt_senha.type;
+
+            if (tipo_senha == 'password') {
+                ipt_senha.type = 'text'
+            } else {
+                ipt_senha.type = 'password'
+            }
+        }
+    
+        function confirmarSenha() {
+            let senha = ipt_senha.value;
+            let conf_senha = ipt_conf_senha.value;
+    
+            if (conf_senha == '') {
+                msg_conf_senha.innerHTML = '';
+            } else {
+                if (senha === conf_senha) {
+                    msg_conf_senha.innerHTML = `Senhas iguais!`;
+                    msg_conf_senha.className = `msg-valida`;
+                } else {
+                    msg_conf_senha.innerHTML = `As senhas não coincidem`;
+                    msg_conf_senha.className = `msg-validacao`;
+                }
+            }
+        }
+    
+        function validarCnpj() {
+            let cnpj = ipt_cnpj.value;
+            cnpj = cnpj.replace(/\D/g, '');
+            cnpj = cnpj.substring(0, 14);
+    
+            let parte1 = cnpj.substring(0, 2);
+            let parte2 = cnpj.substring(2, 5)
+            let parte3 = cnpj.substring(5, 8);
+            let parte4 = cnpj.substring(8, 12);
+            let parte5 = cnpj.substring(12, 14);
+    
+            if (cnpj.length <= 2) {
+                ipt_cnpj.value = cnpj;
+            } else if (cnpj.length <= 5) {
+                ipt_cnpj.value = parte1 + '.' + parte2;
+            } else if (cnpj.length <= 8) {
+                ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3;
+            } else if (cnpj.length <= 12) {
+                ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3 + '/' + parte4;
+            } else if (cnpj.length <= 14) {
+                ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3 + '/' + parte4 + '-' + parte5;
+            }
+        }
+    
+        function validarTelefone() {
+            let telefone = ipt_telefone.value;
+            telefone = telefone.replace(/\D/g, '');
+            telefone = telefone.substring(0, 11);
+    
+            let parte1 = telefone.substring(0, 2);
+            let parte2 = telefone.substring(2, 7);
+            let parte3 = telefone.substring(7, 11);
+    
+            if (telefone.length <= 2) {
+                ipt_telefone.value = telefone
+            } else if (telefone.length <= 7) {
+                ipt_telefone.value = '(' + parte1 + ')' + ' ' + parte2
+            } else if (telefone.length <= 11) {
+                ipt_telefone.value = '(' + parte1 + ')' + ' ' + parte2 + '-' + parte3
+            }
+        }
+    
+        function cadastrarUsuario(event) {
+            event.preventDefault()
+
+            let cadastro_valido = true;
+
+            if (msg_nome.className == 'msg-validacao' ||
+                msg_email.className == 'msg-validacao' ||
+                msg_senha.className == 'msg-validacao' ||
+                msg_conf_senha.className == 'msg-validacao' ||
+                ipt_razao.value.trim() == '' ||
+                ipt_nome_fantasia.value.trim() == '' ||
+                ipt_cnpj.value.replace(/\D/g, '').length != 14 ||
+                ipt_telefone.value.replace(/\D/g, '').length != 11 ||
+                (!porte_pequeno.checked &&
+                !porte_medio.checked &&
+                !porte_grande.checked)
+            ) {
+                cadastro_valido = false;
+            }
+
+            if (cadastro_valido) {
+                let porte_loja = '';
+
+                if (porte_grande.checked) {
+                    porte_loja = porte_grande.value  
+                } else if (porte_medio.checked) {
+                    porte_loja = porte_medio.value
+                } else {
+                    porte_loja = porte_pequeno.value
+                }
+
+                let dados_cadastro = {
+                    nome: ipt_nome.value,
+                    email: ipt_email.value,
+                    razao_social: ipt_razao.value,
+                    nome_fantasia: ipt_nome_fantasia.value,
+                    cnpj: ipt_cnpj.value,
+                    telefone: ipt_telefone.value,
+                    porte_loja: porte_loja
+                }
+
+                localStorage.setItem('dados_cadastro', JSON.stringify(dados_cadastro))
+                console.log(localStorage.getItem('dados_cadastro'))
+
+                alert('Cadastro validado!')
+            } else {
+                alert('Cadastro Incompleto!')
+            }
+        }
+    </script>
 </body>
 
 </html>
-
-<script>
-    function validarNome() {
-        let partes_nome = ipt_nome.value.trim().split(' ');
-
-        if (ipt_nome.value.trim() == '') {
-            msg_nome.innerHTML = ''
-        } else {
-            if (partes_nome.length < 2) {
-                msg_nome.innerHTML = `Digite seu nome e sobrenome`;
-                msg_nome.className = 'msg-validacao';
-            } else {
-                msg_nome.innerHTML = `Nome válido!`;
-                msg_nome.className = 'msg-valida';
-            }
-        }
-    }
-
-    function validarSenha() {
-        let senha = ipt_senha.value;
-
-        if (senha.length >= 8 && /[A-Z]/.test(senha) && /[^A-Za-z0-9]/.test(senha)) {
-            msg_senha.innerHTML = `Senha válida!`;
-            msg_senha.className = "msg-valida";
-        } else {
-            msg_senha.innerHTML = `A senha deve conter no mínimo 8 caracteres, uma letra maiúscula e um caractere especial.`;
-            msg_senha.className = 'msg-validacao';
-        }
-    }
-
-    function confirmarSenha() {
-        let senha = ipt_senha.value;
-        let conf_senha = ipt_conf_senha.value;
-
-        if (conf_senha == '') {
-            msg_conf_senha.innerHTML = '';
-        } else {
-            if (senha === conf_senha) {
-                msg_conf_senha.innerHTML = `Senhas iguais!`;
-                msg_conf_senha.className = `msg-valida`;
-            } else {
-                msg_conf_senha.innerHTML = `As senhas não coincidem`;
-                msg_conf_senha.className = `msg-validacao`;
-            }
-        }
-    }
-
-    function validarCnpj() {
-        let cnpj = ipt_cnpj.value;
-        cnpj = cnpj.replace(/\D/g, '');
-        cnpj = cnpj.substring(0, 14);
-
-        let parte1 = cnpj.substring(0, 2);
-        let parte2 = cnpj.substring(2, 5)
-        let parte3 = cnpj.substring(5, 8);
-        let parte4 = cnpj.substring(8, 12);
-        let parte5 = cnpj.substring(12, 14);
-
-        if (cnpj.length <= 2) {
-            ipt_cnpj.value = cnpj;
-        } else if (cnpj.length <= 5) {
-            ipt_cnpj.value = parte1 + '.' + parte2;
-        } else if (cnpj.length <= 8) {
-            ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3;
-        } else if (cnpj.length <= 12) {
-            ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3 + '/' + parte4;
-        } else if (cnpj.length <= 14) {
-            ipt_cnpj.value = parte1 + '.' + parte2 + '.' + parte3 + '/' + parte4 + '-' + parte5;
-        }
-    }
-</script>
