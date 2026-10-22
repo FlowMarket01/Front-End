@@ -85,6 +85,12 @@ body {
     font-size: 14px;
 }
 
+.mensagemLogin {
+    margin: -16px 0 0;
+    color: #B42318;
+    font-size: 14px;
+}
+
 .textoFormulario label,
 .linhaSenha label {
     margin-bottom: 7px;
