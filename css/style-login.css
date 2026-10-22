@@ -1,134 +1,124 @@
-/* Remove a margem padrão do navegador, que poderia criar uma borda branca ao redor. */
-body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    color: #033e32;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/*
-    FUNDO DA PÁGINA
-    width: 100% ocupa a largura disponível.
-    min-height: 100vh ocupa pelo menos a altura da janela.
-    box-sizing: border-box faz padding e borda entrarem no cálculo do tamanho.
-*/
-.backDosGraunds {
-    display: flex;
-    flex-direction: column; /* Coloca o cartão e o texto de cadastro um abaixo do outro. */
-    align-items: center;    /* Centraliza esses elementos horizontalmente. */
-    width: 100%;
-    min-height: 100vh;
+* {
     box-sizing: border-box;
-    background-color: #f3f7f5;
-    padding: 20px 16px 40px;
 }
 
-/* Logo acima do cartão */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #0F4C3A;
+    background-color: #F4F7F5;
+}
+
 .imagens {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: #f3f7f5;
-    padding: 28px 12px 20px;
+    margin-top: 50px;
 }
 
-/* Limita o tamanho das imagens para ficarem proporcionais à referência. */
 .logoCarrinho {
-    width: 22px;
-    height: auto;
+    width: 45px;
+    height: 45px;
 }
 
 .logoNome {
-    width: 96px;
+    width: 160px;
     height: auto;
 }
 
-/*
-    CARTÃO BRANCO
-    max-width limita a largura em telas grandes.
-    width: 100% permite que ele encolha em telas pequenas.
-    box-sizing: border-box impede que padding e borda aumentem a largura além do limite.
-*/
+.backDosGraunds {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 30px 16px 40px;
+}
+
+.backDosGraunds form {
+    width: 100%;
+    max-width: 600px;
+}
+
 .containerPrincipal {
     display: flex;
     width: 100%;
-    max-width: 350px;
     box-sizing: border-box;
-    background-color: #ffffff;
-    border: 1px solid #d5deda;
-    border-radius: 6px;
-    padding: 24px 24px 26px;
-    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #D5DDD8;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/*
-    A descoberta importante aqui é que display: flex, sozinho, organiza os filhos em linha.
-    flex-direction: column muda a direção para coluna: conteúdo e botão ficam empilhados.
-*/
 .formatacao {
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-family: "Poppins", sans-serif;
+    gap: 24px;
     line-height: 1.5;
-    gap: 16px;
 }
 
 .textoFormulario {
     display: flex;
     flex-direction: column;
-    color: #033e32;
+    color: #0F4C3A;
 }
 
-/* O h3 tem tamanho padrão do navegador; por isso ajustamos o próprio h3. */
 .titulo h3 {
-    margin: 0 0 4px;
-    font-size: 17px;
+    margin: 0 0 8px;
+    font-size: 24px;
     line-height: 1.4;
     font-weight: 700;
 }
 
 .descricao {
-    margin: 0 0 16px;
-    color: #777f7b;
-    font-size: 8px;
+    margin: 0 0 24px;
+    color: #828181;
+    font-size: 14px;
 }
 
-/* Labels dos campos */
 .textoFormulario label,
 .linhaSenha label {
-    color: #033e32;
-    font-size: 9px;
+    margin-bottom: 7px;
+    color: #0F4C3A;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 5px;
 }
 
-/* Campos de e-mail e senha */
 .textoFormulario input {
     width: 100%;
-    height: 34px;
-    box-sizing: border-box;
-    border: 1px solid #e1e8e4;
-    border-radius: 5px;
-    padding: 0 10px;
-    font-family: "Poppins", sans-serif;
-    font-size: 8px;
-    color: #033e32;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #D5DDD8;
+    border-radius: 6px;
+    color: #0F4C3A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     outline: none;
 }
 
-/* Espaço entre o campo de e-mail e a linha da senha */
-#ipt_email {
-    margin-bottom: 14px;
+.textoFormulario input:focus {
+    border-color: #0F4C3A;
 }
 
-/* Deixa "Senha" à esquerda e "Esqueci a senha" à direita. */
+#ipt_email {
+    margin-bottom: 24px;
+}
+
 .linhaSenha {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 
 .linhaSenha label {
@@ -136,68 +126,69 @@ body {
 }
 
 .esqueciSenha {
-    color: #64877e;
-    font-size: 7px;
+    color: #64877E;
+    font-size: 12px;
     text-decoration: none;
 }
 
-/* Permite posicionar o ícone dentro do campo da senha. */
 .campoSenha {
     position: relative;
 }
 
 .campoSenha input {
-    padding-right: 30px;
+    padding-right: 40px;
 }
 
 .iconeOlho {
     position: absolute;
-    right: 10px;
     top: 50%;
+    right: 15px;
     transform: translateY(-50%);
-    color: #737d78;
-    font-size: 11px;
+    color: #737D78;
+    font-size: 16px;
 }
+
 .containerSecundarioVerde {
     display: flex;
-    width: 100%;
-    min-height: 32px;
-    box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    background-color: #005743;
-    color: #ffffff;
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 15px;
     border: none;
-    border-radius: 3px;
-    padding: 8px 12px;
-    font-family: "Poppins", sans-serif;
-    font-size: 9px;
+    border-radius: 6px;
+    background-color: #0F4C3A;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Efeito visual quando o cursor passa pelo botão. */
 .containerSecundarioVerde:hover {
-    background-color: #034a3a;
+    background-color: #6AAE48;
 }
 
-/* Texto de cadastro abaixo do cartão */
 .cadastro {
-    margin: 10px 0 0;
+    margin: 20px 0 0;
+    color: #0F4C3A;
+    font-size: 14px;
     text-align: center;
-    color: #477267;
-    font-size: 8px;
 }
 
 .cadastro a {
-    color: #033e32;
-    font-weight: 700;
+    color: #0F4C3A;
+    font-weight: 600;
     text-decoration: none;
 }
 
-/* Em telas muito estreitas, reduz um pouco o espaço interno do cartão. */
-@media (max-width: 380px) {
+@media (max-width: 600px) {
+    .imagens {
+        margin-top: 32px;
+    }
+
     .containerPrincipal {
-        padding: 20px 16px;
+        padding: 28px 24px;
     }
 }
