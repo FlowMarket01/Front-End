@@ -364,7 +364,7 @@
 
 <section class="calculadora_panel">
         <div class="calculadora">
-            <span class="medium green center" style="font-size: 13px;"> <img src="Rectangle.png" alt="cristal"> PRODUTO </span>
+            <span class="medium green center" style="font-size: 13px;"> <img src="img/Rectangle.png" alt="cristal"> PRODUTO </span>
             <h1 class="title"> Quanto o fluxo invisível <br> custa para você? </h1>
             <h3 class="medium"> Ajuste a sua realidade nos controles, a estimativa atualiza ao vivo. <br> Os valores
                 iniciais seguem as
@@ -409,7 +409,7 @@
             </div> <br><br>
 
 
-            <button class="btn_calculadora" onclick="saiba_mais()">Falar com vendas<img src="Right Arrow.png"
+            <button class="btn_calculadora" onclick="saiba_mais()">Falar com vendas<img src="img/Right_Arrow.png"
                     style="margin-left: 15px;" alt="flecha"></button><br><br>
         </div>
     </section>
@@ -654,4 +654,46 @@
          <span class="footer_direitos"> © 2026 FlowMarket Systems, Inc. Todos os direitos reservados. </span>
     </footer>
 </body>
+<script>
+    function calcular() {
+        let escala = ipt_escala.value;
+        let caixas = Number(ipt_caixas.value);
+        let ticket = 0;
+        let clientes = 0;
+
+        if (caixas <= 0){
+            caixas = 0
+        }
+
+        if (escala == 'pequeno') {
+            ticket = 57.90
+            clientes = 5
+        } else if (escala == 'medio') {
+            ticket = 69.10
+            clientes = 7
+        } else if (escala == 'grande'){
+            ticket = 80.30
+            clientes = 10
+        }
+
+        valor_ticket.innerHTML = ticket;
+
+        let renda_total = Number(ticket * caixas * clientes).toFixed(2);
+        let perda_caixa = Number(renda_total * 0.1).toFixed(2);
+        let total_caixa = perda_caixa / caixas;
+
+        total.innerHTML = perda_caixa
+
+        if (isNaN(total_caixa) || caixas <= 0) {
+            total_por_caixa.innerHTML = 0.00
+        }
+        else {
+            total_por_caixa.innerHTML = (total_caixa).toFixed(2)
+        }
+    }
+
+    function saiba_mais() {
+        alert("Link para outra página")
+    }
+</script>
 </html>
