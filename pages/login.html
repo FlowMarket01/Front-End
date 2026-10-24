@@ -23,7 +23,7 @@
 
     <!-- Fundo que ocupa a área principal da tela -->
     <section class="backDosGraunds">
-        <form action="">
+        <form action="" novalidate onsubmit="validarLogin(event)">
             <!-- Cartão branco que contém todo o formulário -->
             <section class="containerPrincipal">
                 <section class="formatacao">
@@ -33,17 +33,18 @@
                         </section>
 
                         <p class="descricao">Use o e-mail e a senha cadastrados na sua conta.</p>
+                        <p id="mensagem_login" class="mensagemLogin" role="alert" aria-live="polite" hidden></p>
 
                         <!-- label identifica o campo; o for deve combinar com o id do input -->
                         <label for="ipt_email">E-mail corporativo</label>
-                        <input type="email" id="ipt_email" placeholder="fernanda@lojacorporativa.com">
+                        <input type="email" id="ipt_email" placeholder="fernanda@lojacorporativa.com" required>
 
                         <section class="linhaSenha">
                             <label for="ipt_password">Senha</label>
                             <a href="#" class="esqueciSenha">Esqueci a senha</a>
                         </section>
                         <section class="campoSenha">
-                            <input type="password" id="ipt_password" placeholder="Mínimo de 6 caracteres">
+                            <input type="password" id="ipt_password" placeholder="Mínimo de 6 caracteres" required>
                             <!-- Ícone ilustrativo em texto; não revela/esconde a senha ainda. -->
                             <span class="iconeOlho" aria-hidden="true">◉</span>
                         </section>
@@ -59,7 +60,56 @@
         </form>
 
         <!-- Fica abaixo do cartão, como na referência -->
-        <p class="cadastro">Ainda não tem uma conta? <a href="#">Cadastre sua loja</a></p>
+        <p class="cadastro">Ainda não tem uma conta? <a href="../pages/cadastro.html">Cadastre sua loja</a></p>
     </section>
+
+    <script>
+        function validarLogin(event) {
+            event.preventDefault();
+
+            let email = ipt_email.value.trim();
+            let senha = ipt_password.value;
+            let mensagem = document.getElementById('mensagem_login');
+
+            sessionStorage.removeItem('usuario_autenticado');
+
+            if (email == '' || senha == '') {
+                mensagem.textContent = 'Preencha o e-mail e a senha antes de continuar.';
+                mensagem.hidden = false;
+                return;
+            }
+
+            let usuarioSalvo = localStorage.getItem('dados_cadastro');
+
+            if (usuarioSalvo == null) {
+                mensagem.textContent = 'Não encontramos uma conta cadastrada. Cadastre sua loja antes de entrar.';
+                mensagem.hidden = false;
+                return;
+            }
+
+            let dadosCadastro;
+
+            try {
+                dadosCadastro = JSON.parse(usuarioSalvo);
+            } catch (erro) {
+                mensagem.textContent = 'Não foi possível ler os dados da conta cadastrada.';
+                mensagem.hidden = false;
+                return;
+            }
+
+            if (dadosCadastro != null &&
+                typeof dadosCadastro.email == 'string' &&
+                typeof dadosCadastro.senha == 'string' &&
+                dadosCadastro.email.toLowerCase() == email.toLowerCase() &&
+                dadosCadastro.senha == senha
+            ) {
+                sessionStorage.setItem('usuario_autenticado', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                mensagem.textContent = 'E-mail ou senha inválidos.';
+                mensagem.hidden = false;
+            }
+        }
+    </script>
 </body>
 </html>

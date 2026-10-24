@@ -74,6 +74,27 @@ body {
     gap: 5px;
 }
 
+.campo-senha {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.campo-senha .form-input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+#visualizar_senha {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .form-input {
     height: 40px;
     padding: 0 15px;
