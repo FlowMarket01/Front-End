@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>FlowMarket</title>
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <section class="fundo_secaoHero">
+    <header class="cabecaLhoDash">
+        <h1>
+            <div class="molduraLogo">
+                <img src="./img/iconCart.png" alt="FlowMarket" />
+            </div>
+            Flow<span>Market</span>
+        </h1>
+        <nav class="navegacaoPrincipal" aria-label="Navegação principal">
+            <a href="#hero">Início</a>
+            <a href="#problema">Problema</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#solucao">Solução</a>
+        </nav>
+        <div class="acoesCabecalho">
+            <a class="botaoEntrar" href="./pages/login.html">Entrar</a>
+            <a class="botaoCadastrar" href="./pages/cadastro.html">Cadastrar</a>
+        </div>
+    </header>
+    <section class="fundo_secaoHero" id="hero">
         <section class="divisao_secaoHero">
             <section class="texto_esquerdo_secaoHero">
                 <h1 class="titulo_secaoHero">Entenda o fluxo dos seus clientes e acabe com as filas nos caixas em tempo
@@ -31,8 +48,9 @@
 
             </section>
             <section class="cartao_secaoHero">
-                <div class="sub_lojaCentral_secaoHero"><img src="img/icone_mercadoVerde.png"> Loja Central - Supermercado
-                    <br>Modelo</div>
+                <div class="sub_lojaCentral_secaoHero"><img src="./img/icone_mercadoVerde.png"> Loja Central - Supermercado
+                    <br>Modelo
+                </div>
                 <section class="espaco_card_secaoHero">
                     <section class="mini_cards_cinzas_secaoHero">
                         <span class="mini_sub_tit_dosCards_secaoHero">ENTRADAS HOJE</span>
@@ -124,7 +142,7 @@
 
 
     <!--PROBLEMA-->
-    <section class="divisao_secaoProblema">
+    <section class="divisao_secaoProblema" id="problema">
         <section>
             <span class="cego_secaoProblema">◆</span><span class="paragrafo_secaoProblema"> O PONTO CEGO</span>
 
@@ -201,7 +219,7 @@
 
 
 
-    <div class="body-f">
+    <div class="body-f" id="como-funciona">
 
         <div class="container">
 
@@ -362,95 +380,7 @@
         </div>
     </div>
 
-
-
-    <div class="corpo-principal">
-        <div class="container">
-
-
-
-            <div class="div-cabecalho">
-                <span class="sub-titulo">◆ SOBRE NÓS</span>
-                <h1 class="h1-stilo">Quem atende o seu chamado</h1>
-            </div>
-
-            <div class="container-time">
-
-
-                <div class="card card_membro">
-                    <img src="./img/andrey.png" alt="Andrey Sebastian Justino" class="avatar">
-                    <div class="membro-info">
-                        <h3 class="h3-stilo">Andrey Sebastian Justino</h3>
-                        <span class="sub_titulo2">CTO</span>
-                        <a href="" class="sub_titulo2">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="card card_membro">
-                    <img src="./img/guilerme.png" alt="Guilerme Alcova" class="avatar">
-                    <div class="membro-info">
-                        <h3 class="h3-stilo">Guilerme Alcova</h3>
-                        <span class="sub_titulo2">Product Owner</span>
-                        <a href="" class="sub_titulo2">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="card card_membro">
-                    <img src="./img/lucas.pg.png" alt="Lucas Meireles" class="avatar">
-                    <div class="membro-info">
-                        <h3 class="h3-stilo">Lucas Meireles</h3>
-                        <span class="sub_titulo2">Backend & Infrastructure Lead</span>
-                        <a href="" class="sub_titulo2">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="card card_membro">
-                    <img src="./img/matheus.png" alt="Matheus Godoy" class="avatar">
-                    <div class="membro-info">
-                        <h3 class="h3-stilo">Matheus Godoy</h3>
-                        <span class="sub_titulo2">Scrum Master</span>
-                        <a href="" class="sub_titulo2">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="card card_membro">
-                    <img src="./img/rodrigo.png" alt="Rodrigo Azevedo de Andrade" class="avatar">
-                    <div class="membro-info">
-                        <h3 class="h3-stilo">Rodrigo Azevedo de Andrade</h3>
-                        <span class="sub_titulo2">Head of Hardware & IoT</span>
-                        <a href="" class="sub_titulo2">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="card card_membro">
-                    <img src="./img/victor.png" alt="Victor Mansur" class="avatar">
-                    <div class="membro-info">
-                        <h3 class="h3-stilo">Victor Mansur</h3>
-                        <span class="sub_titulo2">Head of Data & Analytics</span>
-                        <a href="" class="sub_titulo2">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-    </div>
-
-    <section class="cta-body">
-        <div>
-            <h1 class="title-cta">Veja sua loja do jeito que ela realmente se move</h1>
-        </div>
-        <div>
-            <p class="text-cta">Quer saber quais corredores da sua loja estão vazios e em quais caixas a fila
-                está travando suas vendas? Instalamos o sistema por 30 dias, sem custo. Se
-                os números não falarem por si, recolhemos os sensores sem burocracia.</p>
-        </div>
-        <div>
-            <button class="text-button-cta">Falar com vendas<img src="img/seta.png" class="icon-cta">>
-            </button>
-        </div>
- <section class="fundo">
+    <section class="fundo" id="solucao">
 
         <!-- Cabeçalho da página -->
         <div class="ajustes">
@@ -595,6 +525,205 @@
         </div>
 
     </section>
+
+    <section class="calculadora_panel">
+        <div class="calculadora">
+            <span class="medium green center" style="font-size: 13px;"> <img src="img/Rectangle.png" alt="cristal">
+                PRODUTO </span>
+            <h1 class="title"> Quanto o fluxo invisível <br> custa para você? </h1>
+            <h3 class="medium"> Ajuste a sua realidade nos controles, a estimativa atualiza ao vivo. <br> Os valores
+                iniciais seguem as
+                medianas que vemos em <br> supermercados de médio porte. </h3><br><br>
+
+            <div class="input">
+                Porte do mercado <br>
+                <select name="" id="ipt_escala" onchange="calcular()">
+                    <option selected="selected" value="pequeno">Pequeno</option>
+                    <option value="medio">Médio</option>
+                    <option value="grande">Grande</option>
+                </select> <br>
+                <span class="subtitle">Ticket médio de referência: R$ <span id="valor_ticket"></span></span><br><br>
+                <br>
+            </div>
+
+            <div class="input">Quantidade de caixas em estado crítico<br><input type="number" id="ipt_caixas"
+                    placeholder="2" oninput="calcular()"><br>
+                <span class="subtitle">Considera-se em estado crítico o caixa cuja fila tem entre 10 e 15 pessoas</span>
+            </div> <br><br>
+
+        </div>
+
+        <div class="mostra">
+            <span class="semibold">RESULTADO DA SIMULAÇÃO</span><br><br>
+            <span class="medium medium_size" style="color: #0F4C3A;">Impacto financeiro total estimado</span> <br>
+            <span class="semibold green" style="font-size: 64px;">
+                R$ <span id="total">0.00</span>
+            </span>
+
+            <div class="linha"></div><br>
+
+            <span class="semibold">Impacto estimado por caixa crítico<br><br>
+                <span class="lime" style="font-size: 28px;">R$ <span id="total_por_caixa">0.00</span></span>
+            </span><br><br>
+            <div class="aviso">
+                <div class="linha_verde"></div>
+                <span style="font-size: 14px;">
+                    Estimativa de potencial impacto financeiro - não representa <br>
+                    uma perda financeira efetivamente garantida
+                </span>
+            </div> <br><br>
+
+
+            <button class="btn_calculadora" onclick="saiba_mais()">Falar com vendas<img src="img/Right_Arrow.png"
+                    style="margin-left: 15px;" alt="flecha"></button><br><br>
+        </div>
+    </section>
+
+    <div class="corpo-principal">
+        <div class="container">
+
+
+
+            <div class="div-cabecalho">
+                <span class="sub-titulo">◆ SOBRE NÓS</span>
+                <h1 class="h1-stilo">Quem atende o seu chamado</h1>
+            </div>
+
+            <div class="container-time">
+
+
+                <div class="card card_membro">
+                    <img src="./img/andrey.png" alt="Andrey Sebastian Justino" class="avatar">
+                    <div class="membro-info">
+                        <h3 class="h3-stilo">Andrey Sebastian Justino</h3>
+                        <span class="sub_titulo2">CTO</span>
+                        <a href="" class="sub_titulo2">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card_membro">
+                    <img src="./img/guilerme.png" alt="Guilerme Alcova" class="avatar">
+                    <div class="membro-info">
+                        <h3 class="h3-stilo">Guilerme Alcova</h3>
+                        <span class="sub_titulo2">Product Owner</span>
+                        <a href="" class="sub_titulo2">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card_membro">
+                    <img src="./img/lucas.pg.png" alt="Lucas Meireles" class="avatar">
+                    <div class="membro-info">
+                        <h3 class="h3-stilo">Lucas Meireles</h3>
+                        <span class="sub_titulo2">Backend & Infrastructure Lead</span>
+                        <a href="" class="sub_titulo2">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card_membro">
+                    <img src="./img/matheus.png" alt="Matheus Godoy" class="avatar">
+                    <div class="membro-info">
+                        <h3 class="h3-stilo">Matheus Godoy</h3>
+                        <span class="sub_titulo2">Scrum Master</span>
+                        <a href="" class="sub_titulo2">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card_membro">
+                    <img src="./img/rodrigo.png" alt="Rodrigo Azevedo de Andrade" class="avatar">
+                    <div class="membro-info">
+                        <h3 class="h3-stilo">Rodrigo Azevedo de Andrade</h3>
+                        <span class="sub_titulo2">Head of Hardware & IoT</span>
+                        <a href="" class="sub_titulo2">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card_membro">
+                    <img src="./img/victor.png" alt="Victor Mansur" class="avatar">
+                    <div class="membro-info">
+                        <h3 class="h3-stilo">Victor Mansur</h3>
+                        <span class="sub_titulo2">Head of Data & Analytics</span>
+                        <a href="" class="sub_titulo2">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <section class="cta-body">
+        <div>
+            <h1 class="title-cta">Veja sua loja do jeito que ela realmente se move</h1>
+        </div>
+        <div>
+            <p class="text-cta">Quer saber quais corredores da sua loja estão vazios e em quais caixas a fila
+                está travando suas vendas? Instalamos o sistema por 30 dias, sem custo. Se
+                os números não falarem por si, recolhemos os sensores sem burocracia.</p>
+        </div>
+        <div>
+            <button class="text-button-cta">Falar com vendas<img src="img/seta.png" class="icon-cta">>
+            </button>
+        </div>
+    </section>
+
+    <footer class="footer_panel">
+        <div class="footer_row">
+            <div class="footer_tab white"> <span class="logo"><img src="img/Shopping_Cart.png" alt="Carrinho"><b
+                        style="color: white;">Flow</b>market</span><br> Inteligência de fluxo para supermercados.
+                <br> Da entrada, por cada corredor, até o caixa. <br> Cobrança por ponto de acesso.
+            </div>
+            <div class="footer_tab">
+                <h2>PRODUTO</h2> Como funciona <br> Calculadora <br> Prévia dashboard
+            </div>
+            <div class="footer_tab ">
+                <h2>EMPRESA</h2> flowmarket@flowmarket.com
+            </div>
+        </div>
+        <span class="footer_direitos"> © 2026 FlowMarket Systems, Inc. Todos os direitos reservados. </span>
+    </footer>
 </body>
+<script>
+    function calcular() {
+        let escala = ipt_escala.value;
+        let caixas = Number(ipt_caixas.value);
+        let ticket = 0;
+        let clientes = 0;
+
+        if (caixas <= 0) {
+            caixas = 0
+        }
+
+        if (escala == 'pequeno') {
+            ticket = 57.90
+            clientes = 5
+        } else if (escala == 'medio') {
+            ticket = 69.10
+            clientes = 7
+        } else if (escala == 'grande') {
+            ticket = 80.30
+            clientes = 10
+        }
+
+        valor_ticket.innerHTML = ticket;
+
+        let renda_total = Number(ticket * caixas * clientes).toFixed(2);
+        let perda_caixa = Number(renda_total * 0.1).toFixed(2);
+        let total_caixa = perda_caixa / caixas;
+
+        total.innerHTML = perda_caixa
+
+        if (isNaN(total_caixa) || caixas <= 0) {
+            total_por_caixa.innerHTML = 0.00
+        }
+        else {
+            total_por_caixa.innerHTML = (total_caixa).toFixed(2)
+        }
+    }
+
+    function saiba_mais() {
+        alert("Link para outra página")
+    }
+</script>
 
 </html>
