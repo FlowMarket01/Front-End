@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-body{
-    zoom: 0.75;
-}
+
 *{
     margin: 0;
     padding: 0;
@@ -96,9 +94,9 @@ html {
 .divisao_secaoHero {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 28px;
-    justify-content: space-around;
+    gap: 15px;
+    padding: 24px;
+    justify-content: space-between;
 }
 
 
@@ -491,9 +489,9 @@ html {
 
     color: #3D6E5F; 
 
-    font-size: 22px; 
+    font-size: 18px; 
 
-    max-width: 500px; 
+    max-width: 450px; 
 
     margin-bottom: 8.5px; 
 
@@ -535,7 +533,7 @@ html {
 
 .fonte_secaoProblema { 
 
-    font-size: 16px; 
+    font-size: 14px; 
 
     line-height: 1.5; 
 
@@ -627,7 +625,7 @@ html {
 
     margin: 10px; 
 
-    padding: 40px; 
+    padding: 30px; 
 
 } 
 
