@@ -713,11 +713,12 @@ html {
     padding: 40px 20px;
     display: flex;
     justify-content: center;
+
 }
 
-.container {
-    max-width: 1000px;
+.body-f .container {
     width: 100%;
+    max-width: 1200px;
 }
 
 
@@ -741,7 +742,7 @@ html {
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
 }
 
 
@@ -829,25 +830,19 @@ html {
 
 .step-content .h3-como_funciona {
     color: #0F4C3A;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 6px;
 }
 
 .step-content .p-como_funciona {
-    font-size: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+}
 
-    .step-content .p-como_funciona {
-        font-size: 12px;
-        line-height: 1.5;
-    }
-
+@media (max-width: 900px) {
     .content-grid {
         grid-template-columns: 1fr;
-    }
-
-    .div-header .h1-como_funciona {
-        font-size: 28px;
     }
 }
 
