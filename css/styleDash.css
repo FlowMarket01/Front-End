@@ -110,23 +110,23 @@ html{
 
 .sectionDash{
     display: flex;
+    flex-direction: column;
     margin: 20px 0px 5px 0px;
     gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 
 .divCard{
     background-color: #fff;
-    width: 40%;
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     height: 541px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    min-width: 400px;
+    min-width: 0;
 }
 
 .divCard h1{
@@ -156,9 +156,17 @@ html{
 }
 
 .supDivSelect{
-    /* border: 2px solid black; */
     display: flex;
-    gap: 100px;
+    align-items: center;
+    gap: 20px;
+}
+
+.supDivSelect p{
+    flex: 1;
+}
+
+.supDivSelect select{
+    flex-shrink: 0;
 }
 
 .supDivSelect select,
