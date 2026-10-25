@@ -6,20 +6,32 @@
     <title>FlowMarket</title>
     <link rel="stylesheet" href="../css/styleDash.css" />
     <script>
-      if (sessionStorage.getItem("usuario_autenticado") != "true") {
+/*       if (sessionStorage.getItem("usuario_autenticado") != "true") {
         window.location.replace("login.html");
-      }
+      } */
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header class="cabecaLhoDash">
-      <h1>
-        <div class="molduraLogo">
+      <a href="..\index.html">
+        <div onclick="" class="molduraLogo" href="./pages/login.html">
           <img src="../img/iconCart.png" alt="iconCart" />
         </div>
-        Flow<span>Market</span>
-      </h1>
+      </a>
+        <div class="cabecalhoButtonBar">
+          <button class="ButtonSelecionado cabecalhoButton verdeclaro">
+            <img src="..\img\CorredorImg.svg" alt="Corredor">
+          </button>
+          <button class="cabecalhoButton branco">
+            <img src="..\img\PessoasImg.svg" alt="Corredor">
+          </button>
+          <button class="cabecalhoButton branco">
+            <img src="..\img\RelatórioImg.svg" alt="Corredor">
+          </button>
+        </div>
+      
+      <img class="perfilImg" src="..\img\Perfil.png" alt="Perfil">
     </header>
 
     <main class="mainDash">
