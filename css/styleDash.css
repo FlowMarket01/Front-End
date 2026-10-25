@@ -9,32 +9,7 @@
 
 html{
     font-size: 65.5%;
-    zoom: 0.85;
-}
-
-.cabecaLhoDash{
-    padding: 20px 50px;
-}
-
-.cabecaLhoDash h1{
-    display: flex;
-    align-items: center;
-    color: #0F4C3A;
-    font-size: 3rem;
-}
-
-.cabecaLhoDash h1 span{
-    color: #6AAE48;
-}
-
-.cabecaLhoDash .molduraLogo{
-    height: 50px;
-    width: 40px;
-}
-
-.cabecaLhoDash .molduraLogo img{
-    height: 100%;
-    width: 100%;
+    zoom: 0.75;
 }
 
 .mainDash{
