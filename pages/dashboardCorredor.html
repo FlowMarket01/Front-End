@@ -36,10 +36,10 @@
 
     <main class="mainDash">
       
-      <h1 id="tituloPeriodo">Fluxo e filas - últimas 24 horas</h1>
+      <h1 id="tituloPeriodo">Fluxo nos corredores - últimas 24 horas</h1>
       <p>
-        Mercado Caramico - leituras dos sensores ultrassônicos de corredor e das
-        zonas de fila - dados de demonstração
+        Mercado Caramico - leituras dos sensores ultrassônicos dos corredores -
+        dados de demonstração
       </p>
       <div class="periodoDash">
         <label for="sltPeriodo">Período:</label>
@@ -76,24 +76,6 @@
           </div>
         </div>
 
-        <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1>
-        <div class="kpisDiv" id="cardKpi_FilasCaixas">
-          
-          <div class="cardKpi">
-
-            <h3>Caixas com fila cheia agora</h3>
-            <h1>2 de 5</h1>
-
-          </div>
-
-          <div class="cardKpi">
-
-            <h3 id="h3_tempoTotalFilaCheia">Tempo total em fila cheia nas últimas 24 horas</h3>
-            <h1>2h 06min</h1>
-
-          </div>
-
-        </div>
       </section>
 
       <section id="sectionGraficoCorredor" class="sectionDash">
@@ -133,42 +115,6 @@
         </div>
       </section>
 
-      <section id="sectionGraficoCaixa" class="sectionDash">
-        <div id="cardCaixaMaiorTempo" class="divCard">
-          <h1>Caixas com maior tempo em fila cheia</h1>
-          <p id="descricaoCaixaTempo">
-            Minutos acumulados no estado "cheio" nas últimas 24h.
-          </p>
-
-          <div class="chartContainer">
-            <canvas
-              id="graficoBarraCaixaMaiorTempo"
-              class="canvasGrafico"
-              aria-label="grafico de Barra de Caixa com Maior Tempo"
-            ></canvas>
-          </div>
-        </div>
-
-        <div id="cardCaixaPicoOcupacao" class="divCard">
-          <h1>Pico de ocupação por caixa</h1>
-          <div id="supCaixaPicoOcupacao" class="supDivSelect">
-            <p id="descricaoCaixaOcupacao">
-              Estado da fila por hora - vazio, moderado ou cheio. Escolha o
-              caixa para atualizar.
-            </p>
-            <select name="" id="sltCaixas">
-              <!--gerar option com js-->
-            </select>
-          </div>
-          <div class="chartContainer">
-            <canvas
-              id="graficoLinhaCaixaPicoOcupacao"
-              class="canvasGrafico"
-              aria-label="grafico de Linha de Caixa em Pico Ocupacao"
-            ></canvas>
-          </div>
-        </div>
-      </section>
     </main>
 
     <script>
@@ -179,14 +125,6 @@
         { identificacao: "Corredor 4", pontuacao: 742 },
         { identificacao: "Hortifrúti", pontuacao: 655 },
         { identificacao: "Padaria", pontuacao: 438 },
-      ];
-
-      let caixasRanking = [
-        { identificacao: "Caixa 1", minutosEmCheio: 96 },
-        { identificacao: "Caixa 2", minutosEmCheio: 141 },
-        { identificacao: "Caixa 3", minutosEmCheio: 48 },
-        { identificacao: "Caixa 4", minutosEmCheio: 24 },
-        { identificacao: "Caixa 5", minutosEmCheio: 12 },
       ];
 
       let corredorSeries = {
@@ -216,34 +154,8 @@
         ],
       };
 
-      let caixaSeries = {
-        "Caixa 1": [
-          0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1,
-          0,
-        ],
-        "Caixa 2": [
-          0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1,
-          1,
-        ],
-        "Caixa 3": [
-          0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1,
-          0,
-        ],
-        "Caixa 4": [
-          0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0,
-          0,
-        ],
-        "Caixa 5": [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1,
-          0,
-        ],
-      };
-
-      let estado = ["Vazio", "Moderado", "Cheio"];
-
       let horas = [];
       for (let h = 0; h < 24; h++) horas.push(String(h).padStart(2, "0") + "h");
-      console.log(horas)
 
       function gerarRotulosPeriodo(dias) {
         if (dias == 1) return horas;
@@ -358,12 +270,6 @@
           cont++;
         }
 
-        let cont2 = 0;
-        while (cont2 < caixasRanking.length) {
-          sltCaixas.innerHTML += `<option value="${caixasRanking[cont2].identificacao}">${caixasRanking[cont2].identificacao}</option>`;
-          cont2++;
-        }
-
         acionamentoTotalCorredores(corredoresRanking)
         corredorMaisMovimentado(corredoresRanking)
         h1_horarioPicoCorredor.textContent = obterHorarioPico()
@@ -429,90 +335,6 @@
         graficoLinhaCorredor.update();
       });
 
-      let graficoBarraCaixa = new Chart(graficoBarraCaixaMaiorTempo, {
-        type: "bar",
-        data: {
-          labels: caixasRanking.map(function (c) {
-            return c.identificacao;
-          }),
-          datasets: [
-            {
-              data: caixasRanking.map(function (c) {
-                return c.minutosEmCheio;
-              }),
-              backgroundColor: "#0F4C3A",
-              borderRadius: { topLeft: 6, topRight: 6 },
-              maxBarThickness: 42,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: tooltipMarca,
-          },
-          scales: { x: escalaCategorica, y: escalaContagem },
-        },
-      });
-
-      let graficoLinhaCaixa = new Chart(graficoLinhaCaixaPicoOcupacao, {
-        type: "line",
-        data: {
-          labels: horas,
-          datasets: [
-            {
-              data: caixaSeries["Caixa 1"],
-              borderColor: "#6AAE48",
-              backgroundColor: "rgba(106, 174, 72, 0.10)",
-              borderWidth: 2,
-              fill: true,
-              stepped: true,
-              pointRadius: 0,
-              pointHitRadius: 12,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: Object.assign({}, tooltipMarca, {
-              callbacks: {
-                label: function (ctx) {
-                  return " Estado: " + estado[ctx.parsed.y];
-                },
-              },
-            }),
-          },
-          scales: {
-            x: escalaCategorica,
-            y: {
-              min: 0,
-              max: 2,
-              ticks: {
-                callback: function (valor) {
-                  return estado[valor];
-                },
-              },
-              border: { display: false },
-            },
-          },
-        },
-      });
-
-      sltCaixas.addEventListener("change", function () {
-        graficoLinhaCaixa.data.datasets[0].data = repetirSerieDiaria(
-          caixaSeries[sltCaixas.value],
-          Number(sltPeriodo.value),
-        );
-        graficoLinhaCaixa.update();
-      });
-
-      
-
       function atualizarPeriodo() {
         let dias = Number(sltPeriodo.value);
         let textoPeriodo =
@@ -521,7 +343,7 @@
           dias === 1 ? "nas últimas 24 horas" : "nos últimos " + dias + " dias";
         let rotulos = gerarRotulosPeriodo(dias);
 
-        tituloPeriodo.textContent = "Fluxo e filas - " + textoPeriodo;
+        tituloPeriodo.textContent = "Fluxo nos corredores - " + textoPeriodo;
         descricaoCorredorFluxo.textContent =
           "Ativações de presença " +
           periodoComPreposicao +
@@ -532,28 +354,14 @@
           periodoComPreposicao +
           ". Escolha o corredor para atualizar.";
 
-        descricaoCaixaTempo.textContent =
-          'Minutos acumulados no estado "cheio" ' + periodoComPreposicao + ".";
-
-        descricaoCaixaOcupacao.textContent =
-          "Estado da fila por hora - vazio, moderado ou cheio, " +
-          periodoComPreposicao +
-          ". Escolha o caixa para atualizar.";
-
         h3_CorredorAcionamento.textContent = "Acionamentos total nos corredores " + periodoComPreposicao
         h3_CorredorMaisMovimentado.textContent = "Corredor mais movimentado " + periodoComPreposicao
         h3_horarioPicoCorredor.textContent = "Horário de pico dos corredores " + periodoComPreposicao
-        h3_tempoTotalFilaCheia.textContent = "Tempo total em fila cheia " + periodoComPreposicao
         h1_horarioPicoCorredor.textContent = obterHorarioPico(dias)
 
         graficoBarraCorredor.data.datasets[0].data = corredoresRanking.map(
           function (corredor) {
             return corredor.pontuacao * dias;
-          },
-        );
-        graficoBarraCaixa.data.datasets[0].data = caixasRanking.map(
-          function (caixa) {
-            return caixa.minutosEmCheio * dias;
           },
         );
         graficoLinhaCorredor.data.labels = rotulos;
@@ -563,16 +371,8 @@
           ],
           dias,
         );
-        graficoLinhaCaixa.data.labels = rotulos;
-        graficoLinhaCaixa.data.datasets[0].data = repetirSerieDiaria(
-          caixaSeries[sltCaixas.value || caixasRanking[0].identificacao],
-          dias,
-        );
-
         graficoBarraCorredor.update();
-        graficoBarraCaixa.update();
         graficoLinhaCorredor.update();
-        graficoLinhaCaixa.update();
         acionamentoTotalCorredores(corredoresRanking, dias)
         
       }

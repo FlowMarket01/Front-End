@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowMarket - Caixas</title>
+    <link rel="stylesheet" href="../css/styleDash.css" />
+    <script>
+      if (sessionStorage.getItem("usuario_autenticado") != "true") {
+        window.location.replace("login.html");
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboardCaixa.js" defer></script>
+  </head>
+  <body>
+
+    <main class="mainDash">
+      <h1 id="tituloPeriodo">Filas dos caixas - últimas 24 horas</h1>
+      <p>
+        Mercado Caramico - leituras dos sensores ultrassônicos das zonas de fila
+        - dados de demonstração
+      </p>
+      <div class="periodoDash">
+        <label for="sltPeriodo">Período:</label>
+        <select id="sltPeriodo" name="periodo">
+          <option value="1">24 horas</option>
+          <option value="3">3 dias</option>
+          <option value="7">7 dias</option>
+        </select>
+      </div>
+
+      <section class="sectionKpis">
+        <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1>
+        <div class="kpisDiv" id="cardKpi_FilasCaixas">
+          <div class="cardKpi">
+            <h3>Caixas com fila cheia agora</h3>
+            <h1>2 de 5</h1>
+          </div>
+          <div class="cardKpi">
+            <h3 id="h3_tempoTotalFilaCheia">
+              Tempo total em fila cheia nas últimas 24 horas
+            </h3>
+            <h1>2h 06min</h1>
+          </div>
+        </div>
+      </section>
+
+      <section id="sectionGraficoCaixa" class="sectionDash">
+        <div id="cardCaixaMaiorTempo" class="divCard">
+          <h1>Caixas com maior tempo em fila cheia</h1>
+          <p id="descricaoCaixaTempo">
+            Minutos acumulados no estado "cheio" nas últimas 24h.
+          </p>
+          <div class="chartContainer">
+            <canvas
+              id="graficoBarraCaixaMaiorTempo"
+              class="canvasGrafico"
+              aria-label="Gráfico de barras de caixas com maior tempo em fila cheia"
+            ></canvas>
+          </div>
+        </div>
+
+        <div id="cardCaixaPicoOcupacao" class="divCard">
+          <h1>Pico de ocupação por caixa</h1>
+          <div id="supCaixaPicoOcupacao" class="supDivSelect">
+            <p id="descricaoCaixaOcupacao">
+              Estado da fila por hora - vazio, moderado ou cheio. Escolha o
+              caixa para atualizar.
+            </p>
+            <select name="caixa" id="sltCaixas">
+              <!-- opções geradas por JavaScript -->
+            </select>
+          </div>
+          <div class="chartContainer">
+            <canvas
+              id="graficoLinhaCaixaPicoOcupacao"
+              class="canvasGrafico"
+              aria-label="Gráfico de linha do pico de ocupação por caixa"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
