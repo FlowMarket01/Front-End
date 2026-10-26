@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+body{
+    zoom: 0.75;
+}
 *{
     margin: 0;
     padding: 0;
@@ -94,8 +96,8 @@ html {
 .divisao_secaoHero {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 24px;
+    gap: 20px;
+    padding: 28px;
     justify-content: space-around;
 }
 
@@ -172,7 +174,7 @@ html {
 
 .cartao_secaoHero {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     min-width: 0;
     height: auto;
     background-color: white;
@@ -217,20 +219,20 @@ html {
 
 .mini_tit_dosCards_secaoHero {
     color: #0F4C3A;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 
 }
 
 .mini_sub_tit_dosCards_secaoHero {
     color: #A9C29C;
-    font-size: 14px;
+    font-size: 8px;
     font-weight: bold;
 }
 
 .mini_legenda_secaoHero {
     color: #6aae48;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: bold;
 }
 
@@ -292,7 +294,7 @@ html {
 .barra_num_secaoHero {
     display: flex;
     justify-content: flex-end;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .barra_unidade_secaoHero {
@@ -391,8 +393,8 @@ html {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 74px;
-    height: 64px;
+    width: 34px;
+    height: 34px;
     color: #FFFFFF;
     background-color: #FFB800;
     clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
@@ -401,7 +403,7 @@ html {
 
 .aviso_icone::after {
     content: "!";
-    font-size: 42px;
+    font-size: 22px;
     font-weight: bold;
     color: #333333;
     margin-top: 8px;
@@ -414,17 +416,17 @@ html {
 
 .aviso_titulo_secaoHero {
     color: #111111;
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 700;
     margin-bottom: 3px;
 }
 
 .aviso_paragrafo_secaoHero {
     color: #222222;
-    font-size: 18px;
+    font-size: 11px;
     line-height: 1.45;
     margin: 0;
-    max-width: 600px;
+    max-width: 300px;
 }
 
 .fundo_secaoHero {
@@ -489,7 +491,7 @@ html {
 
     color: #3D6E5F; 
 
-    font-size: 18px; 
+    font-size: 22px; 
 
     max-width: 450px; 
 
@@ -533,7 +535,7 @@ html {
 
 .fonte_secaoProblema { 
 
-    font-size: 14px; 
+    font-size: 16px; 
 
     line-height: 1.5; 
 
@@ -559,13 +561,13 @@ html {
 
     font-weight: bold; 
 
-    font-size: 40px; 
+    font-size: 50px; 
 
     margin-bottom: 10px; 
 
     margin-top: 10px; 
 
-    max-width: 400px; 
+    max-width: 500px; 
 
 } 
 
@@ -625,7 +627,7 @@ html {
 
     margin: 10px; 
 
-    padding: 30px; 
+    padding: 40px; 
 
 } 
 
@@ -691,7 +693,7 @@ html {
 
 .sub-titulo {
     color: #ffff;
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Popins', sans-serif;
     ;
     font-weight: 700;
@@ -797,7 +799,7 @@ html {
 
 .sub-tag {
     color: #6AAE48;
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 700;
     display: block;
     margin-bottom: 10px;
@@ -1021,7 +1023,7 @@ html {
 }
 
 .nomePagina {
-    font-size: 18px;
+    font-size: 10px;
     margin-bottom: 10px;
     color: rgb(170, 211, 116);
 }
