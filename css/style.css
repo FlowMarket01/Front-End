@@ -982,13 +982,7 @@ min-height: 330px;
 }
 
 
-.sub-tag {
-    color: #6AAE48;
-    font-size: 11px;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-}
+
 
 .div-header .h1-como_funciona {
     color: #0F4C3A;
@@ -1208,7 +1202,7 @@ min-height: 330px;
 }
 
 .nomePagina {
-    font-size: 10px;
+    font-size: 17px;
     margin-bottom: 10px;
     color: rgb(170, 211, 116);
 }
