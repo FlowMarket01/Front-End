@@ -116,7 +116,7 @@ html{
 }
 
 
-.alerta_kpiDiv{
+.alerta_kpiDiv [hidden]{
     position: absolute;
     top: 0;
     left: 470px;
