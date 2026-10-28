@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+body{
+    zoom: 0.75;
+}
 *{
     margin: 0;
     padding: 0;
@@ -92,17 +94,17 @@ html {
 }
 
 .divisao_secaoHero {
-    display: flex;
+    
     align-items: center;
-    gap: 10px;
-    padding: 24px;
+    gap: 20px;
+    padding: 28px;
     justify-content: space-around;
 }
 
 
 .texto_esquerdo_secaoHero {
-
-    padding: 20px;
+    border-radius: 45px;
+    padding: 80px;
     max-width: 1100px;
     align-items: flex-start;
 }
@@ -172,7 +174,7 @@ html {
 
 .cartao_secaoHero {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     min-width: 0;
     height: auto;
     background-color: white;
@@ -217,20 +219,20 @@ html {
 
 .mini_tit_dosCards_secaoHero {
     color: #0F4C3A;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 
 }
 
 .mini_sub_tit_dosCards_secaoHero {
     color: #A9C29C;
-    font-size: 14px;
+    font-size: 8px;
     font-weight: bold;
 }
 
 .mini_legenda_secaoHero {
     color: #6aae48;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: bold;
 }
 
@@ -292,7 +294,7 @@ html {
 .barra_num_secaoHero {
     display: flex;
     justify-content: flex-end;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .barra_unidade_secaoHero {
@@ -391,8 +393,8 @@ html {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 74px;
-    height: 64px;
+    width: 34px;
+    height: 34px;
     color: #FFFFFF;
     background-color: #FFB800;
     clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
@@ -401,7 +403,7 @@ html {
 
 .aviso_icone::after {
     content: "!";
-    font-size: 42px;
+    font-size: 22px;
     font-weight: bold;
     color: #333333;
     margin-top: 8px;
@@ -414,24 +416,26 @@ html {
 
 .aviso_titulo_secaoHero {
     color: #111111;
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 700;
     margin-bottom: 3px;
 }
 
 .aviso_paragrafo_secaoHero {
-    color: #222222;
-    font-size: 18px;
+    color: #22222223;
+    font-size: 11px;
     line-height: 1.45;
     margin: 0;
-    max-width: 600px;
+    max-width: 300px;
 }
 
 .fundo_secaoHero {
-    min-height: 330px;
+min-height: 330px;
     background:
-        linear-gradient(rgba(255, 255, 255, 0.65),
-            rgba(255, 255, 255, 0.65)),
+        linear-gradient(to left, 
+            rgba(255, 255, 255, 0.171), 
+            rgba(255, 255, 255, 1)
+        ),
         url("https://statics.otvfoco.com.br/2026/02/1-29.webp") center / cover no-repeat;
 }
 
@@ -475,190 +479,373 @@ html {
 
 
 
-.cego_secaoProblema { 
+.cego_secaoProblema {  
 
-    color: #6aae48; 
+ 
+
+    color: #6aae48;  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+.paragrafo_secaoProblema {  
+
+ 
+
+    flex: 1;  
+
+ 
+
+    color: #3D6E5F;  
+
+ 
+
+    font-size: 18px;  
+
+ 
+
+    max-width: 450px;  
+
+ 
+
+    margin-bottom: 8.5px;  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+.divisao_secaoProblema {  
+
+ 
+
+    display: flex;  
+
+ 
+
+    padding: 50px;  
+
+ 
+
+    justify-content: space-around;  
+
+ 
+
+    align-items: flex-start;  
+
+ 
+
+    gap: 40px;  
+
+ 
+
+  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+.risco_secaoProblema {  
+
+ 
+
+    border-left: solid 1px #6aae48;  
+
+ 
+
+    min-height: 90px;  
+
+ 
+
+    padding: 10px;  
+
+ 
+
+    margin-top: 20px;  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+.fonte_secaoProblema {  
+
+ 
+
+    font-size: 14px;  
+
+ 
+
+    line-height: 1.5;  
+
+ 
+
+    color: #6F6F6F;  
+
+ 
+
+    max-width: 340px;  
+
+ 
+
+    align-items: center;  
+
+ 
+
+    text-align: left;  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+  
+
+ 
+
+  
+
+ 
+
+.titulo_eSubs_secaoProblema {  
+
+ 
+
+    color: #0F4C3A;  
+
+ 
+
+    font-weight: bold;  
+
+ 
+
+    font-size: 40px;  
+
+ 
+
+    margin-bottom: 10px;  
+
+ 
+
+    margin-top: 10px;  
+
+ 
+
+    max-width: 400px;  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+.blocos_secaoProblema {  
+
+ 
+
+    display: grid;  
+
+ 
+
+    grid-template-columns: 2fr 2fr;  
+
+ 
+
+    gap: 20px;  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+  
+
+ 
+
+.sub-tituloBlocos_secaoProblema {  
+
+ 
+
+    color: #6dae4b;  
+
+ 
+
+    font-weight: bold;  
+
+ 
+
+    font-family: sans-serif;  
+
+ 
+
+    font-size: 20px;  
+
+ 
+
+    margin-bottom: 10px;  
+
+ 
+
+  
+
+ 
+
+}  
+
+ 
+
+  
+
+ 
+
+.card_individual_secaoProblema {  
+
+ 
+
+    width: 100%;  
+
+ 
+
+    max-width: 500px;  
+
+ 
+
+    min-width: 0;  
+
+ 
+
+  
+
+ 
+
+    height: fit-content;  
+
+ 
+
+    background-color: white;  
+
+ 
+
+    box-shadow: 0 10px 25px -5px rgba(46, 40, 40, 0.2),  
+
+ 
+
+        0 8px 10px -6px rgba(0, 0, 0, 0.3);  
+
+ 
+
+    border-radius: 20px;  
+
+ 
+
+    margin: 10px;  
+
+ 
+
+    padding: 30px;  
+
+ 
+
+}  
+
+ 
+
+@media(max-width: 768px) { 
+
+    .divisao_secaoProblema { 
+
+        flex-direction: column; 
+
+        align-items: stretch; 
+
+        padding: 24px; 
+
+    } 
+
+ 
+
+    .blocos_secaoProblema { 
+
+        grid-template-columns: 1fr; 
+
+        gap: 15px 
+
+    } 
+
+ 
+
+    .paragrafo_secaoProblema { 
+
+        font-size: 16px; 
+
+    } 
+
+ 
+
+    .titulo_eSubs_secaoProblema { 
+
+        font-size: 30px; 
+
+    } 
+
+ 
+
+    .fonte_secaoProblema { 
+
+        font-size: 13px; 
+
+    } 
+
+ 
+
+    .card_individual_secaoProblema { 
+
+        padding: 20px; 
+
+    } 
+
+ 
 
 } 
 
  
-
-.paragrafo_secaoProblema { 
-
-    flex: 1; 
-
-    color: #3D6E5F; 
-
-    font-size: 18px; 
-
-    max-width: 450px; 
-
-    margin-bottom: 8.5px; 
-
-} 
-
- 
-
-.divisao_secaoProblema { 
-
-    display: flex; 
-
-    padding: 50px; 
-
-    justify-content: space-around; 
-
-    align-items: flex-start; 
-
-    gap: 40px; 
-
- 
-
-} 
-
- 
-
-.risco_secaoProblema { 
-
-    border-left: solid 1px #6aae48; 
-
-    min-height: 90px; 
-
-    padding: 10px; 
-
-    margin-top: 20px; 
-
-} 
-
- 
-
-.fonte_secaoProblema { 
-
-    font-size: 14px; 
-
-    line-height: 1.5; 
-
-    color: #6F6F6F; 
-
-    max-width: 340px; 
-
-    align-items: center; 
-
-    text-align: left; 
-
-} 
-
- 
-
- 
-
- 
-
-.titulo_eSubs_secaoProblema { 
-
-    color: #0F4C3A; 
-
-    font-weight: bold; 
-
-    font-size: 40px; 
-
-    margin-bottom: 10px; 
-
-    margin-top: 10px; 
-
-    max-width: 400px; 
-
-} 
-
- 
-
-.blocos_secaoProblema { 
-
-    display: grid; 
-
-    grid-template-columns: 2fr 2fr; 
-
-    gap: 20px; 
-
-} 
-
- 
-
- 
-
-.sub-tituloBlocos_secaoProblema { 
-
-    color: #6dae4b; 
-
-    font-weight: bold; 
-
-    font-family: sans-serif; 
-
-    font-size: 20px; 
-
-    margin-bottom: 10px; 
-
- 
-
-} 
-
- 
-
-.card_individual_secaoProblema { 
-
-    width: 100%; 
-
-    max-width: 500px; 
-
-    min-width: 0; 
-
- 
-
-    height: fit-content; 
-
-    background-color: white; 
-
-    box-shadow: 0 10px 25px -5px rgba(46, 40, 40, 0.2), 
-
-        0 8px 10px -6px rgba(0, 0, 0, 0.3); 
-
-    border-radius: 20px; 
-
-    margin: 10px; 
-
-    padding: 30px; 
-
-} 
-
-@media(max-width: 768px) {
-    .divisao_secaoProblema {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 24px;
-    }
-
-    .blocos_secaoProblema {
-        grid-template-columns: 1fr;
-        gap: 15px
-    }
-
-    .paragrafo_secaoProblema {
-        font-size: 16px;
-    }
-
-    .titulo_eSubs_secaoProblema {
-        font-size: 30px;
-    }
-
-    .fonte_secaoProblema {
-        font-size: 13px;
-    }
-
-    .card_individual_secaoProblema {
-        padding: 20px;
-    }
-
-}
-
 
 .corpo-principal {
     background-color: #6AAE48;
@@ -795,13 +982,7 @@ html {
 }
 
 
-.sub-tag {
-    color: #6AAE48;
-    font-size: 16px;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-}
+
 
 .div-header .h1-como_funciona {
     color: #0F4C3A;
@@ -1021,7 +1202,7 @@ html {
 }
 
 .nomePagina {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 10px;
     color: rgb(170, 211, 116);
 }
