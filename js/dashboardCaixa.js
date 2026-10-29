@@ -181,6 +181,7 @@ function atualizarPeriodo() {
 
   graficoBarraCaixa.data.datasets[0].data = caixasRanking.map(
     (caixa) => caixa.minutosEmCheio * dias,
+    
   );
   graficoLinhaCaixa.data.labels = gerarRotulosPeriodo(dias);
   graficoLinhaCaixa.data.datasets[0].data = repetirSerieDiaria(
