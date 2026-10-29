@@ -6,9 +6,9 @@
     <title>FlowMarket - Caixas</title>
     <link rel="stylesheet" href="../css/styleDash.css" />
     <script>
-      if (sessionStorage.getItem("usuario_autenticado") != "true") {
-        window.location.replace("login.html");
-      }
+      // if (sessionStorage.getItem("usuario_autenticado") != "true") {
+      //   window.location.replace("login.html");
+      // }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboardCaixa.js" defer></script>
@@ -20,13 +20,16 @@
           <img src="../img/iconCart.png" alt="iconCart" />
         </div>
       </a>
-        <div class="cabecalhoButtonBar">
+        <!-- BOTÕES DE NAVEGAÇÃO DO DASHBOARD -->
+        <div class="cabecalhoButtonBar" style="display: flex; gap: 12px;">
           <button class="ButtonSelecionado cabecalhoButton verdeclaro">
             <a href="./dashboardCorredor.html"><img src="..\img\CorredorImg.svg" alt="Corredor"></a>
           </button>
+          <!-- Separação entre os botões de navegação -->
           <button class="cabecalhoButton branco">
-            <img src="..\img\PessoasImg.svg" alt="Corredor">
+            <a href="./dashboardCaixa.html"><img src="..\img\PessoasImg.svg" alt="Caixa" ></a>
           </button>
+          <!-- Separação entre os botões de navegação -->
           <button class="cabecalhoButton branco">
             <img src="..\img\RelatórioImg.svg" alt="Corredor">
           </button>
@@ -47,7 +50,26 @@
           <option value="3">3 dias</option>
           <option value="7">7 dias</option>
         </select>
+
+        <div class="alerta_kpiDiv" id="alerta crítico" hidden>
+            <div class="alertaIcone">!</div>
+
+            <div class="alertaInfo">
+              <span class="alertaLabel">Fila em estado crítico:</span>
+              <strong>Caixa 3</strong>
+            </div>
+
+            <div class="alertaInfo">
+                <span class="alertaLabel">Início:</span>
+                <strong>13h20</strong>
+            </div>
+
+            <button class="alertaBotao">Visualizar</button>
+            
+        </div>
+
       </div>
+
 
       <section class="sectionKpis">
         <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1>
