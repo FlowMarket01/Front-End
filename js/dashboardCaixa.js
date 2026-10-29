@@ -192,3 +192,8 @@ function atualizarPeriodo() {
 }
 
 sltPeriodo.addEventListener("change", atualizarPeriodo);
+
+function redirecionar() {
+  sltCaixas.value = "Caixa 3"
+  atualizarPeriodo()
+}
