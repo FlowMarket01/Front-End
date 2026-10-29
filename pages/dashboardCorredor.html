@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlowMarket</title>
     <link rel="stylesheet" href="../css/styleDash.css" />
-    <!-- <script>
-       if (sessionStorage.getItem("usuario_autenticado") != "true") {
+    <script>
+/*       if (sessionStorage.getItem("usuario_autenticado") != "true") {
         window.location.replace("login.html");
-      }
-    </script> -->
+      } */
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -20,22 +20,19 @@
         </div>
       </a>
         <div class="cabecalhoButtonBar">
-
-          <button class="ButtonSelecionado cabecalhoButton verdeclaro">
-            <a href="./dashboardCorredor.html"><img src="..\img\CorredorImg.svg" alt="Corredor"></a>
-          </button>
-
-          <button class="cabecalhoButton branco">
-            <a href="./dashboardCaixa.html"><img src="..\img\PessoasImg.svg" alt="caixa"></a>
-          </button>
-
-          <button class="cabecalhoButton branco">
+          <a href="dashboardCaixa.html"  class="cabecalhoButton branco">
+            <img src="..\img\CorredorImg.svg" alt="Corredor">
+          </a>
+          <a href="dashboardCorredor.html" class="ButtonSelecionado cabecalhoButton verdeclaro">
+            <img src="..\img\PessoasImg.svg" alt="Corredor">
+          </a>
+          <a class="cabecalhoButton branco">
             <img src="..\img\RelatórioImg.svg" alt="Corredor">
-          </button>
-
+          </a>
         </div>
-      
-      <img class="perfilImg" src="..\img\Perfil.png" alt="Perfil">
+      <a href="">
+        <img class="perfilImg" src="..\img\Perfil.png" alt="Perfil">
+      </a>
     </header>
 
     <main class="mainDash">
@@ -55,7 +52,6 @@
       </div>
 
       <section class="sectionKpis">
-        <h1 class="titulo_kpiDiv">CORREDORES</h1>
         <div class="kpisDiv">
           
           <div class="cardKpi" id="cardKpi_CorredorAcionamento">

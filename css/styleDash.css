@@ -48,7 +48,7 @@ html{
     filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(500%) hue-rotate(275deg) brightness(115%) contrast(100%);
 }
 
-.cabecaLhoDash > img:last-child {
+.cabecaLhoDash > a:last-child {
     justify-self: flex-end;
     margin-top: auto;
 }
@@ -224,7 +224,7 @@ html{
     width: 100%;
     padding: 20px;
     border-radius: 10px;
-    height: 541px;
+    height: 397px;
     display: flex;
     flex-direction: column;
     gap: 10px;
