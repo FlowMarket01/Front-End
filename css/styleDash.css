@@ -116,7 +116,7 @@ html{
 }
 
 
-.alerta_kpiDiv [hidden]{
+.alerta_kpiDiv { /* colocar o método hidden posteriormente */
     position: absolute;
     top: 0;
     left: 470px;
