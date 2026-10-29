@@ -14,28 +14,27 @@
     <script src="../js/dashboardCaixa.js" defer></script>
   </head>
   <body>
-    <header class="cabecaLhoDash">
+      <header class="cabecaLhoDash">
       <a href="..\index.html">
         <div onclick="" class="molduraLogo" href="./pages/login.html">
           <img src="../img/iconCart.png" alt="iconCart" />
         </div>
       </a>
-        <!-- BOTÕES DE NAVEGAÇÃO DO DASHBOARD -->
-        <div class="cabecalhoButtonBar" style="display: flex; gap: 12px;">
-          <button class="ButtonSelecionado cabecalhoButton verdeclaro">
-            <a href="./dashboardCorredor.html"><img src="..\img\CorredorImg.svg" alt="Corredor"></a>
-          </button>
-          <!-- Separação entre os botões de navegação -->
-          <button class="cabecalhoButton branco">
-            <a href="./dashboardCaixa.html"><img src="..\img\PessoasImg.svg" alt="Caixa" ></a>
-          </button>
-          <!-- Separação entre os botões de navegação -->
-          <button class="cabecalhoButton branco">
+        <div class="cabecalhoButtonBar">
+          <a href="dashboardCaixa.html" class="ButtonSelecionado cabecalhoButton verdeclaro">
+            <img src="..\img\CorredorImg.svg" alt="Corredor">
+          </a>
+          <a href="dashboardCorredor.html" class=" cabecalhoButton branco">
+            <img src="..\img\PessoasImg.svg" alt="Corredor">
+          </a>
+          <a class="cabecalhoButton branco">
             <img src="..\img\RelatórioImg.svg" alt="Corredor">
-          </button>
+          </a>
         </div>
       
-      <img class="perfilImg" src="..\img\Perfil.png" alt="Perfil">
+      <a href="">
+        <img class="perfilImg" src="..\img\Perfil.png" alt="Perfil">
+      </a>
     </header>
     <main class="mainDash">
       <h1 id="tituloPeriodo">Filas dos caixas - últimas 24 horas</h1>
@@ -70,7 +69,7 @@
 
 
       <section class="sectionKpis">
-        <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1>
+  <!--       <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1> -->
         <div class="kpisDiv" id="cardKpi_FilasCaixas">
           <div class="cardKpi">
             <h3>Caixas com fila cheia agora</h3>
