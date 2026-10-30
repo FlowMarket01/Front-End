@@ -168,15 +168,16 @@
 }
 
 /* Status que ainda está em andamento */
-.statusAndamento {
+.statusModerado {
     background-color: #FFCC001A;
     border: 1px solid #FFCC00;
-    color: rgb(75, 66, 0);
+    color: Black;
 }
 
 /* Status que já foi normalizado */
-.statusNormalizado {
-    background-color: rgb(237, 248, 239);
-    border: 1px solid rgb(145, 211, 151);
-    color: rgb(35, 104, 54);
+.statusCritico {
+    background-color: #C00F0C1A;
+    border: 1px solid #C00F0C;
+    color: #000000;
 }
+
