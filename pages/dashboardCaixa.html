@@ -11,7 +11,6 @@
       } */
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/dashboardCaixa.js" defer></script>
   </head>
   <body>
       <header class="cabecaLhoDash">
@@ -71,15 +70,15 @@
       <section class="sectionKpis">
   <!--       <h1 class="titulo_kpiDiv">FILAS DOS CAIXAS</h1> -->
         <div class="kpisDiv" id="cardKpi_FilasCaixas">
-          <div class="cardKpi">
-            <h3>Caixas com fila cheia agora</h3>
-            <h1>2 de 5</h1>
+          <div class="cardKpi" id="cardKpi_CaixasFilaCheiaAgora">
+            <h3 id="h3_caixasFilaCheiaAgora">Caixas com fila cheia agora</h3>
+            <h1 id="h1_caixasFilaCheiaAgora">2 de 5</h1>
           </div>
-          <div class="cardKpi">
+          <div class="cardKpi" id="cardKpi_tempoTotalFilaCheia">
             <h3 id="h3_tempoTotalFilaCheia">
               Tempo total em fila cheia nas últimas 24 horas
             </h3>
-            <h1>2h 06min</h1>
+            <h1 id="h1_tempoTotalFilaCheia">5h 21min</h1>
           </div>
         </div>
       </section>
@@ -120,5 +119,229 @@
         </div>
       </section>
     </main>
+
+    <script>
+      let caixasRanking = [
+        { identificacao: "Caixa 1", minutosEmCheio: 96 },
+        { identificacao: "Caixa 2", minutosEmCheio: 141 },
+        { identificacao: "Caixa 3", minutosEmCheio: 48 },
+        { identificacao: "Caixa 4", minutosEmCheio: 24 },
+        { identificacao: "Caixa 5", minutosEmCheio: 12 },
+      ];
+
+      let caixaSeries = {
+        "Caixa 1": [
+          0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0,
+        ],
+        "Caixa 2": [
+          0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1,
+        ],
+        "Caixa 3": [
+          0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0,
+        ],
+        "Caixa 4": [
+          0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 0,
+        ],
+        "Caixa 5": [
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0,
+        ],
+      };
+
+      let estadosFila = ["Vazio", "Moderado", "Cheio"];
+      let horas = [];
+      for (let h = 0; h < 24; h++) horas.push(String(h).padStart(2, "0") + "h");
+
+      function gerarRotulosPeriodo(dias) {
+        if (dias == 1) return horas;
+
+        let data = new Date();
+        data.setHours(0, 0, 0, 0);
+        data.setDate(data.getDate() - dias + 1);
+
+        let rotulos = [];
+        for (let dia = 0; dia < dias; dia++) {
+          for (let hora = 0; hora < 24; hora++) {
+            rotulos.push(
+              String(data.getDate()).padStart(2, "0") +
+                "/" +
+                String(data.getMonth() + 1).padStart(2, "0") +
+                " " +
+                String(hora).padStart(2, "0") +
+                "h",
+            );
+          }
+          data.setDate(data.getDate() + 1);
+        }
+        return rotulos;
+      }
+
+      function repetirSerieDiaria(serie, dias) {
+        let dados = [];
+        for (let dia = 0; dia < dias; dia++) dados.push(...serie);
+        return dados;
+      }
+
+      let tooltipMarca = {
+        backgroundColor: "#0F4C3A",
+        titleFont: { family: "'Poppins', sans-serif", weight: 600, size: 12 },
+        bodyFont: { family: "'Poppins', sans-serif", weight: 400, size: 12 },
+        padding: 10,
+        cornerRadius: 8,
+        displayColors: false,
+      };
+
+      let escalaContagem = {
+        beginAtZero: true,
+        ticks: { precision: 0 },
+        grid: { color: "rgba(15, 76, 58, 0.08)" },
+        border: { display: false },
+      };
+
+      let escalaCategorica = {
+        grid: { display: false },
+        border: { display: false },
+      };
+
+      function tempoTotalFilaCheia(caixasRanking, dia = 1) {
+        let total = 0;
+        for (let i = 0; i < caixasRanking.length; i++) {
+          total += caixasRanking[i].minutosEmCheio;
+        }
+
+        let minutosTotais = total * dia;
+        let horasTotais = Math.floor(minutosTotais / 60);
+        let minutosRestantes = minutosTotais % 60;
+        h1_tempoTotalFilaCheia.textContent =
+          `${horasTotais}h ${String(minutosRestantes).padStart(2, "0")}min`;
+      }
+
+      window.onload = function () {
+        let cont = 0;
+        while (cont < caixasRanking.length) {
+          sltCaixas.innerHTML +=
+            `<option value="${caixasRanking[cont].identificacao}">${caixasRanking[cont].identificacao}</option>`;
+          cont++;
+        }
+
+        tempoTotalFilaCheia(caixasRanking);
+      };
+
+      let graficoBarraCaixa = new Chart(graficoBarraCaixaMaiorTempo, {
+        type: "bar",
+        data: {
+          labels: caixasRanking.map(function (c) {
+            return c.identificacao;
+          }),
+          datasets: [
+            {
+              data: caixasRanking.map(function (c) {
+                return c.minutosEmCheio;
+              }),
+              backgroundColor: "#0F4C3A",
+              borderRadius: { topLeft: 6, topRight: 6 },
+              maxBarThickness: 42,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: tooltipMarca,
+          },
+          scales: { x: escalaCategorica, y: escalaContagem },
+        },
+      });
+
+      let graficoLinhaCaixa = new Chart(graficoLinhaCaixaPicoOcupacao, {
+        type: "line",
+        data: {
+          labels: horas,
+          datasets: [
+            {
+              data: caixaSeries[caixasRanking[0].identificacao],
+              borderColor: "#6AAE48",
+              backgroundColor: "rgba(106, 174, 72, 0.10)",
+              borderWidth: 2,
+              fill: true,
+              stepped: true,
+              pointRadius: 0,
+              pointHitRadius: 12,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: Object.assign({}, tooltipMarca, {
+              callbacks: {
+                label: function (contexto) {
+                  return " Estado: " + estadosFila[contexto.parsed.y];
+                },
+              },
+            }),
+          },
+          scales: {
+            x: escalaCategorica,
+            y: {
+              min: 0,
+              max: 2,
+              ticks: {
+                callback: function (valor) {
+                  return estadosFila[valor];
+                },
+              },
+              border: { display: false },
+            },
+          },
+        },
+      });
+
+      sltCaixas.addEventListener("change", function () {
+        graficoLinhaCaixa.data.datasets[0].data = repetirSerieDiaria(
+          caixaSeries[sltCaixas.value],
+          Number(sltPeriodo.value),
+        );
+        graficoLinhaCaixa.update();
+      });
+
+      function atualizarPeriodo() {
+        let dias = Number(sltPeriodo.value);
+        let textoPeriodo =
+          dias === 1 ? "últimas 24 horas" : "últimos " + dias + " dias";
+        let periodoComPreposicao =
+          dias === 1 ? "nas últimas 24 horas" : "nos últimos " + dias + " dias";
+        let rotulos = gerarRotulosPeriodo(dias);
+
+        tituloPeriodo.textContent = "Filas dos caixas - " + textoPeriodo;
+        descricaoCaixaTempo.textContent =
+          'Minutos acumulados no estado "cheio" ' + periodoComPreposicao + ".";
+        descricaoCaixaOcupacao.textContent =
+          "Estado da fila por hora - vazio, moderado ou cheio, " +
+          periodoComPreposicao +
+          ". Escolha o caixa para atualizar.";
+        h3_tempoTotalFilaCheia.textContent =
+          "Tempo total em fila cheia " + periodoComPreposicao;
+
+        graficoBarraCaixa.data.datasets[0].data = caixasRanking.map(
+          function (caixa) {
+            return caixa.minutosEmCheio * dias;
+          },
+        );
+        graficoLinhaCaixa.data.labels = rotulos;
+        graficoLinhaCaixa.data.datasets[0].data = repetirSerieDiaria(
+          caixaSeries[sltCaixas.value || caixasRanking[0].identificacao],
+          dias,
+        );
+        graficoBarraCaixa.update();
+        graficoLinhaCaixa.update();
+        tempoTotalFilaCheia(caixasRanking, dias);
+      }
+
+      sltPeriodo.addEventListener("change", atualizarPeriodo);
+    </script>
   </body>
 </html>
