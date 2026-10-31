@@ -853,8 +853,8 @@ min-height: 330px;
     justify-content: center;
     padding: 40px 20px;
     width: 100%;
-    height: 100vh;
     color: #6F6F6F;
+    padding-bottom: 80px;
 }
 
 .container {
@@ -872,15 +872,12 @@ min-height: 330px;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 32px;
-
-
 }
 
 .sub-titulo {
     color: #ffff;
     font-size: 16px;
     font-family: 'Popins', sans-serif;
-    ;
     font-weight: 700;
     display: block;
 
@@ -888,16 +885,9 @@ min-height: 330px;
 
 .container-time {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-
-}
-
-.card {
-    background-color: #FFFFFF;
-    border: 1px solid #E9F0EB;
-    border-radius: 12px;
-    padding: 24px;
+    gap: 30px;
 }
 
 .h3-stilo {
@@ -907,7 +897,8 @@ min-height: 330px;
 .card_membro {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    width: 500px;
 }
 
 .avatar {
@@ -938,19 +929,17 @@ min-height: 330px;
 }
 
 .sub_titulo2 {
-
     color: #6AAE48;
     font-weight: 400;
-
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .container-time {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .corpo-principal {
         height: auto;
         padding: 32px 16px;
@@ -1123,7 +1112,8 @@ min-height: 330px;
 
 .cta-body {
     margin: 0;
-    min-height: 100vh;
+    height: max-content;
+    padding: 100px 0px;
     font-family: 'Poppins', sans-serif;
 
     display: flex;
@@ -1187,7 +1177,7 @@ min-height: 330px;
     flex-direction: column;
     background-color: rgb(4, 73, 57);
     width: 100%;
-    min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 /* Espaço entre as bordas e o conteúdo */
@@ -1492,12 +1482,14 @@ min-height: 330px;
 }
 
 .mostra {
-    padding: 50px 80px 0px 50px;
+    padding: 40px;
     border-radius: 10px;
     background-color: #FFFFFF;
     width: fit-content;
-    margin: 50px;
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    max-width: 100%;
+    min-width: 0;
+    margin: 30px;
+    overflow-wrap: break-word;
 }
 
 .semibold {
@@ -1622,11 +1614,12 @@ h2 {
 }
 
 .footer_panel {
+    margin-top: 10px;
+    padding: 30px;
     box-sizing: border-box;
     border-top: solid 1px #275E4E;
     background-color: #0F4C3A;
     width: 100%;
-    padding: 50px;
     margin: 0;
     font-family: 'Poppins';
     font-size: 16px;
@@ -1635,7 +1628,7 @@ h2 {
 .footer_row {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
     width: 100%;
     border-bottom: solid 1px #275E4E;
@@ -1647,7 +1640,6 @@ h2 {
 }
 
 .logo {
-    padding-top: 10px;
     margin: 0;
     display: flex;
     color: #6AAE48;
@@ -1663,8 +1655,8 @@ h2 {
 .footer_direitos {
     display: block;
     width: 100%;
+    padding-top: 30px;
     color: #949494;
-    margin: 30px;
     font-weight: 600;
 }
 
